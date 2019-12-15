@@ -715,8 +715,6 @@ bot.on('message', async message => {
 
 
 
-
-
 bot.on('ready', message =>
 {
 
