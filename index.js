@@ -22,7 +22,7 @@ bot.on('guildMemberAdd', member => {
 
 
 bot.on('message', (message) => {
-  
+
   if(message.content == 'おやすみ') {
       message.channel.sendMessage('お疲れ様でした!どうぞごゆっくり疲れをいやしてください！')
   }//おやすみ
@@ -30,160 +30,160 @@ bot.on('message', (message) => {
   if(message.content == 'おはよう') {
       message.channel.sendMessage('おはようございます！朝ごはんはちゃんと食べてね！')
   }//おはよう
-  
+
       if(message.isMemberMentioned(bot.user))
     {
         message.reply( '呼びましたか？' );
         return;
     }
-  
+
     if(message.content == 'どうにかして') {
       message.channel.sendMessage('すみません…。私にはどうにもできません…。')
   }
-  
+
       if(message.content == '暇') {
       message.channel.sendMessage('平和ですねぇ…。')
   }
-  
+
       if(message.content == 'こんにちは') {
       message.channel.sendMessage('こんにちは！')
   }
-  
+
         if(message.content == 'なんてことだ') {
       message.channel.sendMessage('な、何があった！')
   }
-  
+
           if(message.content == 'よろしくっ(*｀･ω・)ゞ') {
       message.channel.sendMessage('よろしく！')
   }
-  
+
             if(message.content == 'こんばんは') {
       message.channel.sendMessage('こんばんは！いい夜ですね！')
   }
-  
+
             if(message.content == 'こんばんわ') {
       message.channel.sendMessage('こんばんわ！いい夜ですね！')
   }
-  
+
               if(message.content == 'しんきんぐ') {
                  message.delete().catch(O_o=>{});
       message.channel.sendMessage(':thinking:')
   }
-  
+
   if(message.content == 'バグ'){
     message.delete();
     const emoji = bot.emojis.find("name", "OwO_failed")
     message.channel.send( emoji.toString() );
   }
-  
+
   if(message.content == '低才能値九尾出ない'){
     message.channel.sendMessage('ガンバルドォン！www')
   }
-    
+
   if(message.content == '疲れた'){
     message.channel.sendMessage('あっそ()')
   }
-  
+
   if(message.content == '草'){
     message.channel.sendMessage('🌵🌲🌳🌴🌱🌿☘️🍀🍃🍂🌵🌲🌳🌴🌱🌿☘️🍀🍃🍂')
   }
-  
+
     if (message.content == 'しんきんぐ'){
     message.delete();
     const emoji = bot.emojis.find( "name", "loop_thinking" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'しんきんぐ2かいてん'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkingkaiten" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'しんきんぐぐちゃ'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkinggutya" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'しんきんぐうんこ'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkingunko" );
     message.channel.send( emoji.toString() );
   }
-  
+
       if (message.content == 'しんきんぐうごうご'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkingugougo" );
     message.channel.send( emoji.toString() );
   }
-  
+
       if (message.content == 'しんきんぐ2くるくる'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkingukurukuru2" );
     message.channel.send( emoji.toString() );
   }
-  
+
       if (message.content == 'しんきんぐくるくる'){
     message.delete();
     const emoji = bot.emojis.find( "name", "thinkingkurukuru" );
     message.channel.send( emoji.toString() );
   }
-  
+
       if (message.content == '頭おかしいよ'){
     message.delete();
     const emoji = bot.emojis.find( "name", "kokokoko" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'まって'){
     message.delete();
     const emoji = bot.emojis.find( "name", "wait" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'ロード'){
     const emoji = bot.emojis.find( "name", "loading" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'ぴょんぴょん'){
     message.delete();
     const emoji = bot.emojis.find( "name", "jumping_owo_type3" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'かまって'){
     const emoji = bot.emojis.find( "name", "banban" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'lol'){
     const emoji = bot.emojis.find( "name", "lol" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'あっ'){
     const emoji = bot.emojis.find( "name", "Tobecontinued" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'bot'){
     const emoji = bot.emojis.find( "name", "bot" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'せやな'){
     const emoji = bot.emojis.find( "name", "seyana" );
     message.channel.send( emoji.toString() );
   }
-  
+
     if (message.content == 'くさ'){
     const emoji = bot.emojis.find( "name", "kusahaeru" );
     message.channel.send( emoji.toString() );
   }
 
-  
+
   if(message.content.indexOf(config.prefix) !== 0) return;
 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
@@ -192,7 +192,7 @@ const command = args.shift().toLowerCase();
 message.channel.send(` Ping を確認しています...`)
         .then((pingcheck) => pingcheck.edit(`botの速度|${pingcheck.createdTimestamp - message.createdTimestamp} ms\nAPIの速度|${Math.round(bot.ping)}ms`))
   }//ping
-  
+
   if(command === "binfo") {
       message.channel.send(
           {embed: {
@@ -338,7 +338,7 @@ message.channel.send(` Ping を確認しています...`)
                 name:"embed タイトル 内容 色",
                 value:"埋め込みを作成します\n色は10進数です。"
               }
-              
+
             ]
           }}
         );
@@ -365,7 +365,7 @@ message.channel.send(` Ping を確認しています...`)
               name: "国",
               value: `${message.guild.region}`
             }
-                 
+
           ]
         }
       }
@@ -380,7 +380,7 @@ message.channel.send(` Ping を確認しています...`)
           description: (message.author.tag),
           fields: [{
                       name: "あなたのid",
-                     value: `${message.author.id}` 
+                     value: `${message.author.id}`
                    },
                    {
                      name:"アカウントが作成された時間",
@@ -403,13 +403,13 @@ message.channel.send(` Ping を確認しています...`)
       }
     )
 }
-  
+
   if(command === "say") {
   const sayMessage = args.join(" ");
   message.delete().catch(O_o=>{});
   message.channel.send(sayMessage);
   }
-  
+
   if(command === "sjoin") {
     message.channel.send(
         {embed:{
@@ -423,9 +423,9 @@ message.channel.send(` Ping を確認しています...`)
         }
       }
       );
- 
+
   }
-  
+
 if (command === "info"){
     if(message.author.id == '502816456052834314'){
 const infoMessage = args.join(" ");
@@ -445,7 +445,7 @@ channel.send({embed:{
 });
 }else{message.channel.send('あなたはこのコマンドを実行できません！')}
   }
-  
+
 let messageArray = message.content.split(' ');
 let cmd = messageArray[0];
 let agre = messageArray.slice(1);
@@ -465,8 +465,8 @@ if(command === 'addrole'){
   )
   }else{message.channel.send('管理者以外は実行できません')}
 }
-  
-  
+
+
     if (command === "rolelist") {
     message.channel.send({
       embed: {
@@ -486,7 +486,7 @@ if(command === 'addrole'){
       }
     });
   }
-  
+
   if(command === "cinfo"){
     message.channel.send({
       embed:{
@@ -517,8 +517,8 @@ if(command === 'addrole'){
       }
     });
   }
-  
-  
+
+
 if (command === 'ques'){
   bot.channels.forEach(channel => {
   if (channel.name === "質問作成テスト"){
@@ -543,11 +543,11 @@ if (command === 'ques'){
             }
           });
         });
-    
+
   }
   });
   }
-  
+
   if(command === 'addch'){
       const perms = message.member.permissions;
         if (perms.has("ADMINISTRATOR")) {
@@ -599,8 +599,8 @@ if (command === 'ques'){
       })});
   }
   }
-  
-  
+
+
   if(command === 'embed'){
     const emtitle = args[0]
     const emcontent = args[1]
@@ -618,8 +618,8 @@ if (command === 'ques'){
       }
     })
   }
-  
-  
+
+
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
     const game = args[0]
@@ -627,7 +627,7 @@ if (command === 'ques'){
     }else message.channel.send("あなたは開発者ではありません")
     .then(log)
   }
-  
+
 const author = message.author.tag
   const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
 ch.send({
@@ -636,9 +636,9 @@ title:"コマンド実行log",
   color:3066993,
 description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"`",
 }}))
- 
-  
-  
+
+
+
 });
 
 bot.on('message', message =>
@@ -694,11 +694,11 @@ bot.on('message', async message => {
   const { inspect } = require('util');
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
+
   if (command === 'eval') {
     // Put your userID here
     if (message.author.id !== '502816456052834314', '502816456052834314') {
-    
+
     let evaled;
     try {
       evaled = await eval(args.join(' '));
@@ -713,14 +713,14 @@ bot.on('message', async message => {
   }
 });//evalコマンド
 
- 
+
 
 
 
 bot.on('ready', message =>
 {
-  
-bot.user.setPresence({ game: { name: "r!helpでヘルプを表示!"} });  
+
+bot.user.setPresence({ game: { name: "r!helpでヘルプを表示!"} });
 	console.log('起動');
       const ch_name = "rbot起動ログ";
 
