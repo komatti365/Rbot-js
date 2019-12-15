@@ -341,8 +341,11 @@ message.channel.send(` Ping を確認しています...`)
               {
                 name:"embed タイトル 内容 色",
                 value:"埋め込みを作成します\n色は10進数です。"
-              }
-
+              },
+              {
+                name:"teian",
+                value:"このコマンドを実行すると開発者にコマンドが届きます"
+              },
             ]
           }}
         );
@@ -659,7 +662,7 @@ if (command === 'ques'){
 }});
 }
 });
-  }
+}
 
 
   if(command === 'setgame'){
