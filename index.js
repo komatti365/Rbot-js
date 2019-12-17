@@ -154,11 +154,13 @@ bot.on('message', (message) => {
   }
 
     if (message.content == 'かまって'){
+      message.delete();
     const emoji = bot.emojis.find( "name", "banban" );
     message.channel.send( emoji.toString() );
   }
 
     if (message.content == 'lol'){
+      message.delete();
     const emoji = bot.emojis.find( "name", "lol" );
     message.channel.send( emoji.toString() );
   }
@@ -174,6 +176,7 @@ bot.on('message', (message) => {
   }
 
     if (message.content == 'せやな'){
+      message.delete();
     const emoji = bot.emojis.find( "name", "seyana" );
     message.channel.send( emoji.toString() );
   }
@@ -665,6 +668,7 @@ if (command === 'ques'){
 }
 
 
+
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
     const game = args[0]
@@ -682,9 +686,7 @@ title:"コマンド実行log",
 description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"`",
 }}))
 
-
-
-});
+})
 
 bot.on('message', message =>
 {
