@@ -346,8 +346,8 @@ message.channel.send(` Ping を確認しています...`)
                 value:"埋め込みを作成します\n色は10進数です。"
               },
               {
-                name:"teian",
-                value:"このコマンドを実行すると開発者にコマンドが届きます"
+                name:"teian 文章",
+                value:"このコマンドを実行すると開発者に提案が届きます"
               },
             ]
           }}
@@ -664,7 +664,9 @@ if (command === 'ques'){
   ]
 }});
 }
-});
+}
+);
+message.channel.send("提案内容が送信されました！")
 }
 
 
