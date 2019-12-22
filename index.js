@@ -20,6 +20,21 @@ bot.on('guildMemberAdd', member => {
   });
 });
 
+bot.on('guildMemberAdd', member => {
+
+  let checkNewMemberSent = function () {
+      let tmp = member.lastMessage; //判定のため一時的に格納
+
+      if (tmp === null || tmp.type === "GUILD_MEMBER_JOIN") {
+          member.ban()
+              .then(banned => console.log(`${member.name}は発言しなかったのでBANされました`))
+              .catch(console.error); //権限エラーなどを拾う
+      }
+  }
+
+  setTimeout(checkNewMemberSent,600000); // 600000ミリ秒後に、メンバーがメッセージを送信したか確認する
+});//自動ban
+
 
 bot.on('message', (message) => {
 
