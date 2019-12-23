@@ -804,4 +804,4 @@ bot.channels.forEach(channel => {
 });
 
 
-bot.login(config.Token);
+bot.login(process.env.BOT_TOKEN);
