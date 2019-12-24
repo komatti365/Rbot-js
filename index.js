@@ -183,7 +183,7 @@ bot.on('message', (message) => {
   }
 
     if (message.content == 'あっ'){
-    const emoji = bot.emojis.find( "name", "Tobecontinued" );
+    const emoji = bot.emojis.find( "name", "JyoJyo" );
     message.channel.send( emoji.toString() );
   }
 
@@ -194,7 +194,7 @@ bot.on('message', (message) => {
 
     if (message.content == 'せやな'){
       message.delete();
-    const emoji = bot.emojis.find( "name", "seyana" );
+    const emoji = bot.emojis.find( "name", "eyana" );
     message.channel.send( emoji.toString() );
   }
 
