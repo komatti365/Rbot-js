@@ -34,7 +34,7 @@ bot.on('guildMemberAdd', member => {
       }
   }
 
-  setTimeout(checkNewMemberSent,600000); // 600000ミリ秒後に、メンバーがメッセージを送信したか確認する
+  setTimeout(checkNewMemberSent,6000000000); // 600000ミリ秒後に、メンバーがメッセージを送信したか確認する
 });//自動ban
 
 
