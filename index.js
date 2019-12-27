@@ -779,6 +779,37 @@ bot.on('message', async message => {
   }
 });//evalコマンド
 
+bot.on('message', async (msg) => {
+  const re = new RegExp('https://discordapp.com/channels/([0-9]{18})/([0-9]{18})/([0-9]{18})')
+  const results = msg.content.match(re)
+  if (!results) {
+      return
+  }
+  const guild_id = results[1]
+  const channel_id = results[2]
+  const message_id = results[3]
+
+  const channel = bot.channels.get(channel_id);
+  if (!channel){
+    return;
+  }
+  channel.fetchMessage(message_id)
+    .then(msg => msg.channel.send({
+      embed:{
+        timestamp: new Date(),
+        author:{
+          name:msg.author.tag,
+          icon_url:msg.author.iconURL
+        },
+        footer:{
+          text:msg.channel.name,
+        },
+        description:msg.content
+      }
+    }))
+    .catch(console.error);
+});//url展開
+
 
 
 bot.on('ready', message =>
