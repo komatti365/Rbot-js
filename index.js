@@ -213,66 +213,66 @@ message.channel.send(` Ping を確認しています...`)
         .then((pingcheck) => pingcheck.edit(`botの速度|${pingcheck.createdTimestamp - message.createdTimestamp} ms\nAPIの速度|${Math.round(bot.ping)}ms`))
   }//ping
 
-  if(command === "binfo") {
-      message.channel.send(
-          {embed: {
-            author: {
-              name: "Rbot",
-              icon_url: "https://lh3.googleusercontent.com/MmS5-aDxBra2F0J0jU0lhJHVdcsbvjRk-RoYdhKiH8_UBdGnTP1w9g5J_82USceRWziau5d76pezhcBuSFIWh_eafmH8H4MBNQMnIvgthCfIwnHEyww=w673"
-            },
-            title: "Rbotの説明です",
-            color: 3066993,
-            timestamp: new Date(),
-              thumbnail: {
-              url: message.guild.iconURL
-              },
-              footer: {
-              icon_url: bot.user.avatarURL,
-              text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
-            },
-            fields: [
-              {
-                name: "作成者",
-                value: "ろんげ･|9 Ø /V (?, €#6269"
-              },
-              {
-                name: "使用言語",
-                value: "javascript"
-              },
-              {
-                name: "コマンドプレフィックス",
+ // if(command === "binfo") {
+   //   message.channel.send(
+   //       {embed: {
+   //         author: {
+     //         name: "Rbot",
+       //       icon_url: "https://lh3.googleusercontent.com/MmS5-aDxBra2F0J0jU0lhJHVdcsbvjRk-RoYdhKiH8_UBdGnTP1w9g5J_82USceRWziau5d76pezhcBuSFIWh_eafmH8H4MBNQMnIvgthCfIwnHEyww=w673"
+      //      },
+       //     title: "Rbotの説明です",
+        //    color: 3066993,
+     //       timestamp: new Date(),
+       //       thumbnail: {
+       //       url: message.guild.iconURL
+       //       },
+       //       footer: {
+     //         icon_url: bot.user.avatarURL,
+        //      text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
+      //      },
+    //        fields: [
+       //       {
+           //     name: "作成者",
+        //        value: "ろんげ･|9 Ø /V (?, €#6269"
+    //          },
+      //        {
+             //   name: "使用言語",
+      //          value: "javascript"
+         //     },
+       //       {
+          //      name: "コマンドプレフィックス",
                 value: "「r!」"
-              },
-              {
-                name: "参加サーバー数",
-                value: `${bot.guilds.size}`
-              },
-              {
-                name: "その他",
-                value: "`rbot-global`というチャンネルを作るとグローバルチャットが作れます。\n`rbot-info`というチャンネルを作るとこのbotのお知らせが届くようになります",
-                inline: true,
-              },
-              {
-                name: "公式サーバー",
-                value: "https://discord.gg/tjkh2FM"
-              },
-              {
-                name:"GitHub",
-                value:"https://github.com/ronge-0716/Rbot-js"
-              },
-              {
-                name: "botの招待コード",
-                value: "https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
-                inline: true
-              },
-              {
-                name: "Rbot-subの招待コード",
-                value: "null"
-              }
-            ]
-          }}
-        );
-  }//bot説明
+         //     },
+         //     {
+         //       name: "参加サーバー数",
+        //        value: `${bot.guilds.size}`
+        //      },
+        //      {
+       //         name: "その他",
+          //      value: "`rbot-global`というチャンネルを作るとグローバルチャットが作れます。\n`rbot-info`というチャンネルを作るとこのbotのお知らせが届くようになります",
+         //       inline: true,
+         //     },
+           //   {
+           //     name: "公式サーバー",
+         //       value: "https://discord.gg/tjkh2FM"
+        //      },
+         //     {
+        //        name:"GitHub",
+          //      value:"https://github.com/ronge-0716/Rbot-js"
+        //      },
+          //    {
+         //       name: "botの招待コード",
+          //      value: "https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
+         //       inline: true
+       //       },
+       //       {
+       //         name: "Rbot-subの招待コード",
+        //        value: "null"
+  //            }
+        //    ]
+   //       }}
+   //     );
+//  }//bot説明
 
   if(command === "bs") {
     message.channel.send(
