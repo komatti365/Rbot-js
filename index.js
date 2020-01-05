@@ -632,6 +632,7 @@ if (command === 'ques'){
     const emtitle = args[0]
     const emcontent = args[1]
     const emcolor = args[2]
+    message.delete();
     message.channel.send({
       embed:{
         title:emtitle,
