@@ -241,7 +241,7 @@ message.channel.send(` Ping を確認しています...`)
          //     },
        //       {
           //      name: "コマンドプレフィックス",
-                value: "「r!」"
+     //           value:"[r!]"
          //     },
          //     {
          //       name: "参加サーバー数",
@@ -696,6 +696,40 @@ message.channel.send("提案内容が送信されました！")
   const dice = Math.floor(Math.random() * dicerange);
     message.channel.send(dice + "が出ました！");
   }
+
+	if(command === url){
+  message.channel.send({
+    embed:{
+      title:"urlまとめ",
+      color:Math.floor(Math.random()* 100000),
+      footer:{
+        text:"©ろんげ･|9 Ø /V (?, €#6269"
+      },
+      fields:[
+        {
+          name:"Rbotの招待URL",
+          value:"https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
+          inline: true
+        },
+        {
+          name:"Rbot-subの招待URL",
+          value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=8&scope=bot",
+          inline: true
+        },
+        {
+          name:"bot公式サーバー",
+          value:"https://discord.gg/tjkh2FM",
+          inline: true
+        },
+        {
+          name:"Rbot公式ホームページ",
+          value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0",
+          inline: true
+        }
+      ]
+    }
+  });
+}
 
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
