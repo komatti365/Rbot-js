@@ -697,7 +697,7 @@ message.channel.send("提案内容が送信されました！")
     message.channel.send(dice + "が出ました！");
   }
 
-	if(command === url){
+	if(command === "url"){
   message.channel.send({
     embed:{
       title:"urlまとめ",
