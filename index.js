@@ -22,20 +22,20 @@ bot.on('guildMemberAdd', member => {
   });
 });
 
-bot.on('guildMemberAdd', member => {
+//bot.on('guildMemberAdd', member => {
 
-  let checkNewMemberSent = function () {
-      let tmp = member.lastMessage; //判定のため一時的に格納
+//  let checkNewMemberSent = function () {
+    //  let tmp = member.lastMessage; //判定のため一時的に格納
 
-      if (tmp === null || tmp.type === "GUILD_MEMBER_JOIN") {
-          member.ban()
-              .then(banned => console.log(`${member.name}は発言しなかったのでBANされました`))
-              .catch(console.error); //権限エラーなどを拾う
-      }
-  }
+   //   if (tmp === null || tmp.type === "GUILD_MEMBER_JOIN") {
+    //      member.ban()
+       //       .then(banned => console.log(`${member.name}は発言しなかったのでBANされました`))
+     //         .catch(console.error); //権限エラーなどを拾う
+   //   }
+ // }
 
-  setTimeout(checkNewMemberSent,6000000000); // 600000ミリ秒後に、メンバーがメッセージを送信したか確認する
-});//自動ban
+ // setTimeout(checkNewMemberSent,6000000000); // 600000ミリ秒後に、メンバーがメッセージを送信したか確認する
+// });//自動ban
 
 
 bot.on('message', (message) => {
@@ -351,9 +351,9 @@ message.channel.send(` Ping を確認しています...`)
                 value: "このbotが入っているサーバーを表示します"
               },
               {
-						    name: 'addrole 名前 色',
-						    value:"役職をなまえと色を指定して作成できます。\nこのコマンドはサーバーの管理者しか実行できません\n色は10進数です。"
-					    },
+		name: 'addrole 名前 色',
+		value:"役職をなまえと色を指定して作成できます。\nこのコマンドはサーバーの管理者しか実行できません\n色は10進数です。"
+	      },
               {
                 name: "rolelist",
                 value: "サーバーのロールのリストを表示します"
@@ -366,6 +366,10 @@ message.channel.send(` Ping を確認しています...`)
                 name:"teian 文章",
                 value:"このコマンドを実行すると開発者に提案が届きます"
               },
+              {
+		name:"dice 範囲(数字)",
+		value:"範囲を指定して乱数を表示させます"
+	      },
             ]
           }}
         );
@@ -632,6 +636,7 @@ if (command === 'ques'){
     const emtitle = args[0]
     const emcontent = args[1]
     const emcolor = args[2]
+    message.delete();
     message.channel.send({
       embed:{
         title:emtitle,
@@ -685,8 +690,46 @@ if (command === 'ques'){
 );
 message.channel.send("提案内容が送信されました！")
 }
+	
+    if(command === "dice"){
+    const dicerange = args[0]
+  const dice = Math.floor(Math.random() * dicerange);
+    message.channel.send(dice + "が出ました！");
+  }
 
-
+	if(command === "url"){
+  message.channel.send({
+    embed:{
+      title:"urlまとめ",
+      color:Math.floor(Math.random()* 100000),
+      footer:{
+        text:"©ろんげ･|9 Ø /V (?, €#6269"
+      },
+      fields:[
+        {
+          name:"Rbotの招待URL",
+          value:"https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
+          inline: true
+        },
+        {
+          name:"Rbot-subの招待URL",
+          value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=8&scope=bot",
+          inline: true
+        },
+        {
+          name:"bot公式サーバー",
+          value:"https://discord.gg/tjkh2FM",
+          inline: true
+        },
+        {
+          name:"Rbot公式ホームページ",
+          value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0",
+          inline: true
+        }
+      ]
+    }
+  });
+}
 
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
