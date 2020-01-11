@@ -686,8 +686,12 @@ if (command === 'ques'){
 );
 message.channel.send("提案内容が送信されました！")
 }
-
-
+	
+    if(command === "dice"){
+    const dicerange = args[0]
+  const dice = Math.floor(Math.random() * dicerange);
+    message.channel.send(dice + "が出ました！");
+  }
 
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
