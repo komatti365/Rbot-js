@@ -268,7 +268,7 @@ message.channel.send(` Ping を確認しています...`)
               {
                 name: "Rbot-subの招待コード",
                 value: "null"
-              }
+              },
             ]
           }}
         );
