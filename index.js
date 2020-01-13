@@ -812,7 +812,13 @@ bot.on('message', async message => {
     }
     catch (error) {
       console.error(error);
-      message.reply('エラーが発生しました');
+      message.reply('エラーが発生しました')
+      message.channel.send({
+      embed:{
+      title:"エラー内容",
+      description:error.message
+      }
+      })
     }
   }else message.channel.send("あなたは開発者ではありません")
   }
