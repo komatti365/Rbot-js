@@ -812,7 +812,7 @@ bot.on('message', async message => {
     }
     catch (error) {
       console.error(error);
-	    message.reply(error.message);
+  message.reply("エラー");
   }else message.channel.send("あなたは開発者ではありません")
   }
 });//evalコマンド
