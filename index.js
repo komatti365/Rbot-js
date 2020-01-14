@@ -257,10 +257,6 @@ message.channel.send(` Ping を確認しています...`)
                 value: "https://discord.gg/tjkh2FM"
               },
               {
-                name:"GitHub",
-                value:"https://github.com/ronge-0716/Rbot-js"
-              },
-              {
                 name: "botの招待コード",
                 value: "https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
                 inline: true
@@ -816,7 +812,8 @@ bot.on('message', async message => {
     }
     catch (error) {
       console.error(error);
-  message.reply("エラー");
+      message.channel.send(err.message);
+    }
   }else message.channel.send("あなたは開発者ではありません")
   }
 });//evalコマンド
