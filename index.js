@@ -874,4 +874,4 @@ bot.channels.forEach(channel => {
 });
 
 
-bot.login(BOT_TOKEN);
+bot.login(DISCORD_BOT_TOKEN);
