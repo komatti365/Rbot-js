@@ -253,18 +253,29 @@ message.channel.send(` Ping を確認しています...`)
                 inline: true,
               },
               {
-                name: "公式サーバー",
-                value: "https://discord.gg/tjkh2FM"
-              },
-              {
                 name: "botの招待コード",
                 value: "https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
                 inline: true
               },
               {
                 name: "Rbot-subの招待コード",
-                value: "null"
+                value: "https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=8&scope=bot",
+                inline: true
               },
+              {
+                name: "公式サーバー",
+                url:"https://discord.gg/tjkh2FM",
+                inline: true
+              },
+              {
+                name:"公式ホームページ",
+                value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0",
+              },
+              {
+                name: "github",
+                value:"https://github.com/ronge-0716/Rbot-js",
+                inline: true
+              }
             ]
           }}
         );
@@ -648,45 +659,47 @@ if (command === 'ques'){
   }
 
   if (command === "teian"){
-  const teianMessage = args.join(" ");
-  bot.channels.forEach(channel => {
-  if (channel.id === "655729271607787522"){
-  channel.send({embed:{
-  title:"提案が届きました！",
-  color: 3066993,
-  timestamp: new Date(),
-  thumbnail: {
-    url: message.guild.iconURL
-  },
-  fields:[
-    {
-      name:"提案者",
-      value:message.author.tag
-    },
-    {
-      name:"id",
-      value:message.author.id
-    },
-    {
-      name:"鯖名",
-      value:message.guild.name
-    },
-    {
-      name:"id",
-      value:message.guild.id
-    },
-    {
-      name:"提案内容",
-      value:teianMessage
-    }
-  ]
-}});
+    const teianMessage = args.join(" ");
+    bot.channels.forEach(channel => {
+      if (channel.id === "655729271607787522"){
+        channel.send({
+          embed:{
+            title:"提案が届きました！",
+            color: 3066993,
+            timestamp: new Date(),
+            thumbnail: {
+              url: message.guild.iconURL
+            },
+            fields:[
+              {
+                name:"提案者",
+                value:message.author.tag
+              },
+              {
+                name:"id",
+                value:message.author.id
+              },
+              {
+                name:"鯖名",
+                value:message.guild.name
+              },
+              {
+                name:"id",
+                value:message.guild.id
+              },
+              {
+                name:"提案内容",
+                value:teianMessage
+              }
+            ]
+      }
+    });
+      }
+  }
+  );
+  message.channel.send("提案内容が送信されました！")
 }
-}
-);
-message.channel.send("提案内容が送信されました！")
-}
-	
+
     if(command === "dice"){
     const dicerange = args[0]
   const dice = Math.floor(Math.random() * dicerange);
