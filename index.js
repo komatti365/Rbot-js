@@ -264,7 +264,7 @@ message.channel.send(` Ping を確認しています...`)
               },
               {
                 name: "公式サーバー",
-                url:"https://discord.gg/tjkh2FM",
+                value:"https://discord.gg/tjkh2FM",
                 inline: true
               },
               {
