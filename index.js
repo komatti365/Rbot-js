@@ -259,7 +259,7 @@ message.channel.send(` Ping を確認しています...`)
               },
               {
                 name: "Rbot-subの招待コード",
-                value: "https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=8&scope=bot",
+                value: "https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot",
                 inline: true
               },
               {
@@ -722,7 +722,7 @@ if (command === 'ques'){
         },
         {
           name:"Rbot-subの招待URL",
-          value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=8&scope=bot",
+          value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot",
           inline: true
         },
         {
@@ -867,7 +867,7 @@ bot.on('message', async (msg) => {
 bot.on('ready', message =>
 {
 
-bot.user.setPresence({ game: { name: "r!helpでヘルプを表示!"} });
+bot.user.setPresence({ game: { name: "[r!help]でヘルプを表示!"} });
 	console.log('起動');
       const ch_name = "rbot起動ログ";
 
