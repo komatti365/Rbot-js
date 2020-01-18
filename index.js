@@ -877,32 +877,7 @@ bot.on('message', async (msg) => {
          footer:{
            text:"8/10"
          },
-         fields:[
-          {
-            name:"Rbotの招待リンク",
-            value:"https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot"
-          },
-          {
-            name:"Rbot-subの招待リンク",
-            value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot"
-          },
-          {
-            name:"このBotの公式鯖",
-            value:"https://discord.gg/tjkh2FM"
-          },
-          {
-            name:"このbotのホームページ(作成中)",
-            value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0"
-          },
-          {
-            name:"RbotのGitHub",
-            value:"https://github.com/ronge-0716/Rbot-js"
-          },
-          {
-            name:"Rbot-subのGitHub",
-            value:"https://github.com/ronge-0716/Rbot-sub-js"
-          }
-         ]
+         description:"[Rbotの招待リンク](https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot)\n\n[Rbot-subの招待リンク](https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot)\n\n[このBotの公式鯖](https://discord.gg/tjkh2FM)\n\n[このbotのホームページ(作成中)](https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0)\n\n[RbotのGitHub](https://github.com/ronge-0716/Rbot-js)\n\n[Rbot-subのgitHub](https://github.com/ronge-0716/Rbot-sub-js)",
     },//ページ8
       9:{title:"その他",
          color:3066993,
