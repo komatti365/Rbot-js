@@ -654,6 +654,7 @@ bot.on('message', async message => {
       message.channel.send(error.message);
     }
   }else message.channel.send("あなたは開発者ではありません")
+  .then(message.console)
   }
 });//evalコマンド
 
