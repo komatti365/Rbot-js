@@ -213,74 +213,6 @@ message.channel.send(` Ping を確認しています...`)
         .then((pingcheck) => pingcheck.edit(`botの速度|${pingcheck.createdTimestamp - message.createdTimestamp} ms\nAPIの速度|${Math.round(bot.ping)}ms`))
   }//ping
 
-  if(command === "binfo") {
-      message.channel.send(
-          {embed: {
-            author: {
-              name: "Rbot",
-              icon_url: "https://lh3.googleusercontent.com/MmS5-aDxBra2F0J0jU0lhJHVdcsbvjRk-RoYdhKiH8_UBdGnTP1w9g5J_82USceRWziau5d76pezhcBuSFIWh_eafmH8H4MBNQMnIvgthCfIwnHEyww=w673"
-            },
-            title: "Rbotの説明です",
-            color: 3066993,
-            timestamp: new Date(),
-              thumbnail: {
-              url: message.guild.iconURL
-              },
-              footer: {
-              icon_url: bot.user.avatarURL,
-              text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
-            },
-            fields: [
-              {
-                name: "作成者",
-                value: "ろんげ･|9 Ø /V (?, €#6269"
-              },
-              {
-                name: "使用言語",
-                value: "javascript"
-              },
-              {
-                name: "コマンドプレフィックス",
-                value: "「r!」"
-              },
-              {
-                name: "参加サーバー数",
-                value: `${bot.guilds.size}`
-              },
-              {
-                name: "その他",
-                value: "`rbot-global`というチャンネルを作るとグローバルチャットが作れます。\n`rbot-info`というチャンネルを作るとこのbotのお知らせが届くようになります",
-                inline: true,
-              },
-              {
-                name: "botの招待コード",
-                value: "https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
-                inline: true
-              },
-              {
-                name: "Rbot-subの招待コード",
-                value: "https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot",
-                inline: true
-              },
-              {
-                name: "公式サーバー",
-                value:"https://discord.gg/tjkh2FM",
-                inline: true
-              },
-              {
-                name:"公式ホームページ",
-                value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0",
-              },
-              {
-                name: "github",
-                value:"https://github.com/ronge-0716/Rbot-js",
-                inline: true
-              }
-            ]
-          }}
-        );
-  }//bot説明
-
   if(command === "bs") {
     message.channel.send(
         {embed: {
@@ -309,78 +241,6 @@ message.channel.send(` Ping を確認しています...`)
       );
 }//bot
 
-  if(command === "help") {
-      message.channel.send(
-          {embed: {
-            author: {
-              name: "コマンド説明",
-            },
-            thumbnail: {
-            url: message.guild.iconURL
-            },
-            title: "コマンドの説明です",
-            color: 3066993,
-            timestamp: new Date(),
-            footer: {
-              text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
-            },
-            fields: [
-              {
-                name: "コマンドプレフィックス",
-                value: "r!"
-              },
-              {
-                name: "ping",
-                value: "botの反応速度を表示します"
-              },
-              {
-                name: "binfo",
-                value: "botの情報を表示します"
-              },
-              {
-                  name: "help",
-                  value: "これを表示します"
-              },
-              {
-                name: "sinfo",
-                value: "サーバーの情報を表示します(情報量少)"
-              },
-              {
-                name: "my",
-                value: "自分の情報を表示します"
-              },
-              {
-                name: "say",
-                value: "言ったことの繰り返してくれます"
-              },
-              {
-                name: "sjoin",
-                value: "このbotが入っているサーバーを表示します"
-              },
-              {
-	            	name: 'addrole 名前 色',
-	            	value:"役職をなまえと色を指定して作成できます。\nこのコマンドはサーバーの管理者しか実行できません\n色は10進数です。"
-	            },
-              {
-                name: "rolelist",
-                value: "サーバーのロールのリストを表示します"
-              },
-              {
-                name:"embed タイトル 内容 色",
-                value:"埋め込みを作成します\n色は10進数です。"
-              },
-              {
-                name:"teian 文章",
-                value:"このコマンドを実行すると開発者に提案が届きます"
-              },
-              {
-		name:"dice 範囲(数字)",
-		value:"範囲を指定して乱数を表示させます"
-	      },
-            ]
-          }}
-        );
-  }//コマンド説明
 
   if (command === "sinfo") {
 	message.channel.send(
@@ -706,40 +566,6 @@ if (command === 'ques'){
     message.channel.send(dice + "が出ました！");
   }
 
-	if(command === "url"){
-  message.channel.send({
-    embed:{
-      title:"urlまとめ",
-      color:Math.floor(Math.random()* 100000),
-      footer:{
-        text:"©ろんげ･|9 Ø /V (?, €#6269"
-      },
-      fields:[
-        {
-          name:"Rbotの招待URL",
-          value:"https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot",
-          inline: true
-        },
-        {
-          name:"Rbot-subの招待URL",
-          value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot",
-          inline: true
-        },
-        {
-          name:"bot公式サーバー",
-          value:"https://discord.gg/tjkh2FM",
-          inline: true
-        },
-        {
-          name:"Rbot公式ホームページ",
-          value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0",
-          inline: true
-        }
-      ]
-    }
-  });
-}
-
   if(command === 'setgame'){
     if(message.author.id !== '502816456052834314', '549881392499130369'){
     const game = args[0]
@@ -862,7 +688,290 @@ bot.on('message', async (msg) => {
     .catch(console.error);
 });//url展開
 
+bot.on('message', async (msg) => {
+  if (!msg.content.toLowerCase().startsWith(config.prefix) || msg.author.bot) return;
+  const args = msg.content.slice(config.prefix.length).split(/ +/g);
+  const command = args.shift().toLowerCase();
 
+  if (command == 'help') {
+    msg.delete()
+    const options = { limit: 15 * 1000, min: 1, max: 10, page: 1}
+
+
+//helpのページ
+    const pages = {
+      1: {title:"Rbotのヘルプです",
+          color:3066993,
+          description:"下にあるリアクションを押してページ移動してください\nゴミ箱のリアクションを押すとこの埋め込みを消すことができます",
+          footer:{
+            text:"1/10"
+          }
+    },//ページ1
+      2:{title:"目次です",
+         color:3066993,
+         fotter:{
+           text:"2/10"
+         },
+         fields:[
+           {
+             name:"P1",
+             value:"helpの使い方"
+           },
+           {
+            name:"P12",
+            value:"目次"
+           },
+           {
+            name:"P3",
+            value:"Botの情報"
+           },
+           {
+            name:"P4",
+            value:"コマンド一覧(情報系)"
+           },
+           {
+            name:"P5",
+            value:"コマンド一覧(機能系)"
+           },
+           {
+            name:"P6",
+            value:"コマンド一覧(その他)"
+           },
+           {
+            name:"P7",
+            value:"その他Botの機能"
+           },
+           {
+            name:"P8",
+            value:"リンク一覧"
+           },
+           {
+            name:"P9",
+            value:"その他"
+           },
+           {
+            name:"P10",
+            value:"参考文献(未完成)"
+           },
+         ]
+    },//ページ2
+      3:{title:"このBotの情報",
+         color:3066993,
+         footer:{
+           text:"3/10"
+         },
+         fields:[
+           {
+             name:"Bot名",
+             value:"Rbot"
+           },
+           {
+             name:"作成者",
+             value:"ろんげ･|9 Ø /V (?, €#6269"
+           },
+           {
+             name:"使用言語",
+             value:"Discord.js"
+           },
+           {
+             name:"ファイル容量",
+             value:"3.84 MB"
+           },
+           {
+             name:"Bot作成日",
+             value:"2019年12月2日08時15分16秒"
+           }
+         ]
+    },//ページ3
+      4:{title:"コマンド一覧(情報系統)",
+         color:3066993,
+         footer:{
+           text:"4/10"
+         },
+         description:"コマンドプレフィックスは「r!」です",
+         fields:[
+           {
+             name:"ping",
+             value:"Botの速度をはかります"
+           },
+           {
+             name:"help",
+             value:"これを表示します"
+           },
+           {
+            name:"sinfo",
+            value:"サーバーの情報を表示します"
+           },
+           {
+            name:"cinfo",
+            value:"チャンネルの情報を表示します"
+           },
+           {
+            name:"my",
+            value:"自分の情報を表示します"
+           },
+           {
+            name:"sjoin",
+            value:"このBotが入っているサーバー一覧を表示します"
+           },
+           {
+            name:"rolelist",
+            value:"サーバーのロールの一覧を表示します"
+           },
+         ]
+      },//ページ4
+      5:{title:"コマンド一覧(機能系)",
+         color:3066993,
+         footer:{
+           text:"5/10"
+         },
+         fields:[
+          {
+            name:"say (文章)",
+            value:"(文章)を繰り返してくれます"
+          },
+          {
+            name:"addrole (名前) (色(10進数))",
+            value:"(名前)という名前のロールが作れます\nroleの権限が必要です"
+          },
+          {
+            name:"embed (タイトル) (内容) (色(10進数))",
+            value:"埋め込みを作成できます"
+          },
+          {
+            name:"doce (範囲(数字))",
+            value:"(範囲)で指定した範囲の乱数を表示します"
+          },
+         ]
+    },//ページ5
+      6:{title:"コマンド一覧(その他)",
+         color:3066993,
+         footer:{
+           text:"6/10"
+         },
+         fields:[
+           {
+             name:"teian",
+             value:"開発者に提案を送信できます。"
+           },
+         ]
+      },//ページ6
+      7:{title:"その他Botの機能",
+         color:3066993,
+         footer:{
+           text:"7/10"
+         },
+         fields:[
+           {
+             name:"グローバルチャット",
+             value:"[`rbot-global`]という名前のチャンネルを作ると、このBotの\nグローバルチャットに接続できます"
+           },
+           {
+            name:"info",
+            value:"[`rbot-info`]という名前のチャンネルを作り、Rbot-subというこのBotのサブBotを入れておくと\nこのBotのお知らせの通知を受け取ることができます"
+          },
+         ]
+    },//ページ7
+      8:{title:"リンクまとめ",
+         color:3066993,
+         footer:{
+           text:"8/10"
+         },
+         fields:[
+          {
+            name:"Rbotの招待リンク",
+            value:"https://discordapp.com/api/oauth2/authorize?client_id=650973245792714762&permissions=8&scope=bot"
+          },
+          {
+            name:"Rbot-subの招待リンク",
+            value:"https://discordapp.com/api/oauth2/authorize?client_id=634020309464383488&permissions=0&scope=bot"
+          },
+          {
+            name:"このBotの公式鯖",
+            value:"https://discord.gg/tjkh2FM"
+          },
+          {
+            name:"このbotのホームページ(作成中)",
+            value:"https://sites.google.com/view/discord-rbot/%E3%83%9B%E3%83%BC%E3%83%A0"
+          },
+          {
+            name:"RbotのGitHub",
+            value:"https://github.com/ronge-0716/Rbot-js"
+          },
+          {
+            name:"Rbot-subのGitHub",
+            value:"https://github.com/ronge-0716/Rbot-sub-js"
+          }
+         ]
+    },//ページ8
+      9:{title:"その他",
+         color:3066993,
+         footer:{
+           text:"9/10"
+         },
+         description:"何か開発者に連絡したいととがあれば、ろんげ･|9 Ø /V (?, €#6269へDMを送るか、\n[teian]コマンドを使ってください。\n\nこのBotのGuthub通知を受け取りたいという方は、サーバーの招待リンクと、設定したいチャンネルのwebhookを送ってくだされば、設定します。"
+    },//ページ9
+      10:{title:"このBotを作るにあたって...",
+          color:3066993,
+          footer:{
+            text:"10/10"
+          },
+          description:"ここには参考にしたwebページなどを書く予定です。\n現在履歴をあさっています..."
+    },//ページ10
+    }
+//helpのページ
+
+    const awaitReactions = async (msg, m, options, filter) => {
+      const { min, max, page, limit } = options;
+      m.awaitReactions(filter, { max: 1, time: limit, errors: ['time'] })
+        .then(async (collected) => {
+        const reaction = collected.first()
+
+        if (reaction.emoji.name === '⬅') {
+      await removeReaction(m, msg, '⬅');
+      if (options.page != options.min) {
+      options.page = options.page - 1;
+      await m.edit({ embed: pages[options.page] });
+      }
+  awaitReactions(msg, m, options, filter);
+        }
+
+    else if (reaction.emoji.name === '➡') {
+  await removeReaction(m, msg, '➡');
+  if (options.page != options.max) {
+      options.page = options.page + 1;
+      await m.edit({ embed: pages[options.page] });
+  }
+  awaitReactions(msg, m, options, filter);
+    }
+
+    else if (reaction.emoji.name === '🗑') {
+  return await m.delete();
+    }
+    else {
+      awaitReactions(msg, m, options, filter);
+    };
+
+
+
+        }).catch(() => {});
+}
+
+    const m = await msg.channel.send({ embed: pages[options.page] });
+    await m.react('⬅');
+    await m.react('➡');
+    await m.react('🗑');
+
+    const filter = (reaction, user) => {
+      return ['⬅', '➡', '🗑'].includes(reaction.emoji.name) && user.id == msg.author.id;
+    };
+    awaitReactions(msg, m, options, filter);
+    const removeReaction = async (m, msg, emoji) => {
+  try { m.reactions.find(r => r.emoji.name == emoji).users.remove(msg.author.id); } catch(err) {}
+    }
+
+    }//command helpの()
+});//client.onの()
 
 bot.on('ready', message =>
 {
@@ -877,7 +986,21 @@ bot.channels.forEach(channel => {
           channel.send(
   {embed: {
     color: 753684,
-    description: 'Rbotが起動しました！'
+    description: 'Rbotが起動しました！',
+    fields:[
+      {
+        name:"認識しているサーバー数",
+        value:bot.guilds.size
+      },
+      {
+        name:"認識しているチャンネル数",
+        value:bot.channels.size
+      },
+      {
+        name:"認識している人数",
+        value:bot.users.size
+      },
+    ]
   }}
 );
             return;
