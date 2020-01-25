@@ -5,7 +5,7 @@ const { Client, Attachment } = require('discord.js');
 const fs = require('fs');
 
 bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === '入退室ログ','いらっしゃい！さようなら');
+  const channel = member.guild.channels.find(ch => ch.name === '入退室ログ');
   if (!channel) return;
   channel.send({
     embed:{
