@@ -451,7 +451,7 @@ if (command === 'ques'){
   }
 
 　if(command === 'chname'){
-  const chname = args.[0]
+  const chname = args[0]
   message.channel.edit({name:'chname'})
  }
 
