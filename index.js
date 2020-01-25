@@ -445,6 +445,10 @@ if (command === 'ques'){
   }
   });
   }
+	
+  if(command === 'close'){
+  message.channel.setParent('670491504992714754')
+  }
 
   if(command === 'addch'){
       const perms = message.member.permissions;
