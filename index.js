@@ -424,7 +424,7 @@ if (command === 'ques'){
     message.guild.createChannel(message.member.displayName, { type: 'text' })
     .then((channel) => {
       channel.setParent('670491434302046276')
-      channel.send({
+      ch.send({
             embed:{
               title: `${message.member.displayName}からの質問です！`,
               color: 3066993,
