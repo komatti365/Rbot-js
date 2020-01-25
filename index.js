@@ -423,7 +423,7 @@ if (command === 'ques'){
     const question = args.join(" ");
     message.guild.createChannel(message.member.displayName, { type: 'text' })
     .then((channel) => {
-      bot.setParent('628130391315841037')
+      channel.setParent('628130391315841037')
      message.channel.send({
             embed:{
               title: `${message.member.displayName}からの質問です！`,
