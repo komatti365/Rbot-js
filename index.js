@@ -416,7 +416,7 @@ if(command === 'addrole'){
     });
   }
 
-
+//質問作成系統
 if (command === 'ques'){
   bot.channels.forEach(channel => {
   if (channel.name === "質問作成テスト"){
@@ -449,6 +449,11 @@ if (command === 'ques'){
   if(command === 'close'){
   message.channel.setParent('670491504992714754')
   }
+
+　if(command === 'chname'){
+  const chname = args.[0]
+  message.channel.edit({name:'chname'})
+ }
 
   if(command === 'addch'){
       const perms = message.member.permissions;
