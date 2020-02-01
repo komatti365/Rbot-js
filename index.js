@@ -419,11 +419,11 @@ if(command === 'addrole'){
 //質問作成系統
 if (command === 'ques'){
   bot.channels.forEach(channel => {
-  if (channel.name === "質問作成テスト"){
+  if (channel.name === "質問作成部屋"){
     const question = args.join(" ");
     message.guild.createChannel(message.member.displayName, { type: 'text' })
     .then((channel) => {
-      channel.setParent('670491434302046276')
+      channel.setParent('673030906306494494')
       channel.send({
             embed:{
               title: `${message.member.displayName}からの質問です！`,
@@ -447,7 +447,7 @@ if (command === 'ques'){
   }
 	
   if(command === 'close'){
-  message.channel.setParent('670491504992714754')
+  message.channel.setParent('673030925864534024')
   }
 
 　if(command === 'chname'){
