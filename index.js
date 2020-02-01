@@ -340,6 +340,17 @@ channel.send({embed:{
   description: (infoMessage),
 }});
 }
+	  if(channel.name === "rbot-global"){
+    channel.send({embed:{
+  title:'Rbotインフォ',
+  color: 3066993,
+  timestamp: new Date(),
+  thumbnail: {
+    url: message.guild.iconURL
+  },
+  description: (infoMessage),
+}});
+  }
 });
 }else{message.channel.send('あなたはこのコマンドを実行できません！')}
   }
