@@ -589,7 +589,7 @@ ch.send({
 embed:{
 title:"コマンド実行log",
   color:3066993,
-description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"`",
+description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"\n[引数1]:"+args[0]+"`",
 }}))
 
 })
