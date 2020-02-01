@@ -419,7 +419,7 @@ if(command === 'addrole'){
 //質問作成系統
 if (command === 'ques'){
   bot.channels.forEach(channel => {
-  if (channel.name === "質問作成部屋"){
+  if (channel.name === "質問部屋作成"){
     const question = args.join(" ");
     message.guild.createChannel(message.member.displayName, { type: 'text' })
     .then((channel) => {
