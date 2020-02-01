@@ -289,10 +289,6 @@ message.channel.send(` Ping を確認しています...`)
                      value:`${message.author.bot}`
                    },
                    {
-                     name:"プレイしているソフト",
-                     value:`${message.author.game}`
-                   },
-                   {
                      name:"アイコンURL",
                      value:`${message.author.avatarURL}`
                    }
@@ -326,34 +322,32 @@ message.channel.send(` Ping を確認しています...`)
 
 if (command === "info"){
     if(message.author.id == '502816456052834314'){
-const infoMessage = args.join(" ");
-const infoch_name = "rbot-info";
-bot.channels.forEach(channel => {
-if (channel.name === "rbot-info"){
-channel.send({embed:{
-  title:'Rbotインフォ',
-  color: 3066993,
-  timestamp: new Date(),
-  thumbnail: {
-    url: message.guild.iconURL
-  },
-  description: (infoMessage),
-}});
-}
+      const infoMessage = args.join(" ");
+      const infoch_name = "rbot-info";
+      bot.channels.forEach(channel => {
+        if (channel.name === "rbot-info"){
+          channel.send({embed:{
+            title:'Rbotインフォ',
+            color: 3066993,
+            timestamp: new Date(),
+            thumbnail: {
+              url: message.guild.iconURL
+            },
+            description: (infoMessage),
+          }});
+        }
 	  if(channel.name === "rbot-global"){
-    channel.send({embed:{
-  title:'Rbotインフォ',
-  color: 3066993,
-  timestamp: new Date(),
-  thumbnail: {
-    url: message.guild.iconURL
-  },
-  description: (infoMessage),
-}});
-  }
-});
+      channel.send({embed:{
+        title:'Rbotインフォ',
+        color: 3066993,
+        timestamp: new Date(),
+        thumbnail: {url: message.guild.iconURL},
+        description: (infoMessage),
+      }});
+    }
+  });
 }else{message.channel.send('あなたはこのコマンドを実行できません！')}
-  }
+}
 
 let messageArray = message.content.split(' ');
 let cmd = messageArray[0];
@@ -456,7 +450,7 @@ if (command === 'ques'){
   }
   });
   }
-	
+
   if(command === 'close'){
   message.channel.setParent('673030925864534024')
   }
