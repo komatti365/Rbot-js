@@ -588,18 +588,6 @@ if (command === 'ques'){
     .then(log)
   }
 
-    if(command === 'saikidou'){
-    if (message.author.id == 502816456052834314){
-    message.channel.send("再起動コマンドを検知しました")
-    bot.user.setPresence({game: { name: "再起動を開始します"} } )
-    message.channel.send("再起動を開始します")
-    try{
-      process.exit();
-    }catch (error){
-      message.channel.send(err.message)
-    }
-  }
-  }
   const author = message.author.tag
   const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
     ch.send({
