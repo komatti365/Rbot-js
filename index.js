@@ -589,7 +589,7 @@ if (command === 'ques'){
   }
 
     if(command === 'saikidou'){
-    if (!message.author.id == 502816456052834314) return;
+    if (message.author.id == 502816456052834314){
     function saiki(){
       process.exit();
     }
@@ -601,6 +601,7 @@ if (command === 'ques'){
     }catch (error) {
       message.channel.send(err.message)
     }
+  }
   }
   const author = message.author.tag
   const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
