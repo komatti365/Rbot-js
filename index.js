@@ -590,15 +590,12 @@ if (command === 'ques'){
 
     if(command === 'saikidou'){
     if (message.author.id == 502816456052834314){
-    function saiki(){
-      process.exit();
-    }
     message.channel.send("再起動コマンドを検知しました")
-    bot.user.setPresence({game: { name: "再起動を開始します"} } );
+    bot.user.setPresence({game: { name: "再起動を開始します"} } )
+    message.channel.send("再起動を開始します")
     try{
-      setTimeout(saiki,5000)
-      .then(message.edit("再起動を開始します"))
-    }catch (error) {
+      process.exit();
+    }catch (error){
       message.channel.send(err.message)
     }
   }
