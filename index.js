@@ -588,14 +588,28 @@ if (command === 'ques'){
     .then(log)
   }
 
-const author = message.author.tag
+    if(command === 'saikidou'){
+    if (!message.author.id == 502816456052834314) return;
+    function saiki(){
+      process.exit();
+    }
+    message.channel.send("再起動コマンドを検知しました")
+    bot.user.setPresence({game: { name: "再起動を開始します"} } );
+    try{
+      setTimeout(saiki,5000)
+      .then(message.edit("再起動を開始します"))
+    }catch (error) {
+      message.channel.send(err.message)
+    }
+  }
+  const author = message.author.tag
   const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
-ch.send({
-embed:{
-title:"コマンド実行log",
-  color:3066993,
-description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"\n[引数1]:"+args[0]+"`",
-}}))
+    ch.send({
+      embed:{
+        title:"コマンド実行log",
+        color:3066993,
+        description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"\n[引数1]:"+args[0]+"`",
+      }}))
 
 })
 
