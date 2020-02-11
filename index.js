@@ -40,19 +40,19 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('message', (message) => {
 
-  if(message.content == 'おやすみ') {
+  if(message.isMemberMentioned(bot.user))
+  {
+      message.reply( '呼びましたか？' );
+      return;
+  }
+
+  if(message.content.startsWith("おやすみ")) {
       message.channel.sendMessage('お疲れ様でした!どうぞごゆっくり疲れをいやしてください！')
   }//おやすみ
 
-  if(message.content == 'おはよう') {
+  if(message.content.startsWith("おはよ")) {
       message.channel.sendMessage('おはようございます！朝ごはんはちゃんと食べてね！')
   }//おはよう
-
-      if(message.isMemberMentioned(bot.user))
-    {
-        message.reply( '呼びましたか？' );
-        return;
-    }
 
     if(message.content == 'どうにかして') {
       message.channel.sendMessage('すみません…。私にはどうにもできません…。')
@@ -62,28 +62,20 @@ bot.on('message', (message) => {
       message.channel.sendMessage('平和ですねぇ…。')
   }
 
-      if(message.content == 'こんにちは') {
+      if(message.content.startsWith("こんにちは")) {
       message.channel.sendMessage('こんにちは！')
   }
 
-        if(message.content == 'なんてことだ') {
-      message.channel.sendMessage('な、何があった！')
+      if(message.content.startsWith("よろしくっ(*｀･ω・)ゞ'")) {
+      message.channel.sendMessage('よろしく！(*｀･ω・)ゞ')
   }
 
-          if(message.content == 'よろしくっ(*｀･ω・)ゞ') {
-      message.channel.sendMessage('よろしく！')
-  }
-
-            if(message.content == 'こんばんは') {
-      message.channel.sendMessage('こんばんは！いい夜ですね！')
-  }
-
-            if(message.content == 'こんばんわ') {
+      if(message.content.startsWith("こんばん")) {
       message.channel.sendMessage('こんばんわ！いい夜ですね！')
   }
 
-              if(message.content == 'しんきんぐ') {
-                 message.delete().catch(O_o=>{});
+      if(message.content == 'しんきんぐ') {
+      message.delete().catch(O_o=>{});
       message.channel.sendMessage(':thinking:')
   }
 
@@ -97,12 +89,8 @@ bot.on('message', (message) => {
     message.channel.sendMessage('ガンバルドォン！www')
   }
 
-  if(message.content == '疲れた'){
-    message.channel.sendMessage('あっそ()')
-  }
-
-  if(message.content == '草'){
-    message.channel.sendMessage('🌵🌲🌳🌴🌱🌿☘️🍀🍃🍂🌵🌲🌳🌴🌱🌿☘️🍀🍃🍂')
+  if(message.content.startsWith("疲れた")){
+    message.channel.sendMessage('お疲れ様です')
   }
 
     if (message.content == 'しんきんぐ'){
@@ -159,12 +147,12 @@ bot.on('message', (message) => {
     message.channel.send( emoji.toString() );
   }
 
-    if (message.content == 'ロード'){
+    if (message.content.startsWith("ロード")){
     const emoji = bot.emojis.find( "name", "loading" );
     message.channel.send( emoji.toString() );
   }
 
-    if (message.content == 'ぴょんぴょん'){
+    if (message.content.startsWith("ぴょんぴょん")){
     message.delete();
     const emoji = bot.emojis.find( "name", "jumping_owo_type3" );
     message.channel.send( emoji.toString() );
@@ -198,409 +186,415 @@ bot.on('message', (message) => {
     message.channel.send( emoji.toString() );
   }
 
-    if (message.content == 'くさ'){
+    if (message.content.startsWith("くさ")){
     const emoji = bot.emojis.find( "name", "kusahaeru" );
     message.channel.send( emoji.toString() );
   }
 
+})//文章応答
 
-  if(message.content.indexOf(config.prefix) !== 0) return;
-const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
+bot.on('message', message => {
 
-  if(command === "ping") {
-message.channel.send(` Ping を確認しています...`)
-        .then((pingcheck) => pingcheck.edit(`botの速度|${pingcheck.createdTimestamp - message.createdTimestamp} ms\nAPIの速度|${Math.round(bot.ping)}ms`))
-  }//ping
+   if(message.content.startsWith(config.prefix)){//prefixから始まる文字列のみ読み取る
 
-  if(command === "bs") {
-    message.channel.send(
-        {embed: {
-          author: {
-            name: "Rbot",
-            icon_url: "https://lh3.googleusercontent.com/MmS5-aDxBra2F0J0jU0lhJHVdcsbvjRk-RoYdhKiH8_UBdGnTP1w9g5J_82USceRWziau5d76pezhcBuSFIWh_eafmH8H4MBNQMnIvgthCfIwnHEyww=w673"
-          },
-          title: "Rbotを作るうえで参考にしたサイト、動画です",
-          color: 3066993,
-          timestamp: new Date(),
-          footer: {
-            icon_url: bot.user.avatarURL,
-            text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
-          },
-          fields: [
-            {
-              name: "botの基礎",
-              value: "https://www.youtube.com/watch?v=9CDPw1lCkJ8",
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if(command === "ping") {
+  message.channel.send(` Ping を確認しています...`)
+          .then((pingcheck) => pingcheck.edit(`botの速度|${pingcheck.createdTimestamp - message.createdTimestamp} ms\nAPIの速度|${Math.round(bot.ping)}ms`))
+    }//ping
+
+    if(command === "bs") {
+      message.channel.send(
+          {embed: {
+            author: {
+              name: "Rbot",
+              icon_url: "https://lh3.googleusercontent.com/MmS5-aDxBra2F0J0jU0lhJHVdcsbvjRk-RoYdhKiH8_UBdGnTP1w9g5J_82USceRWziau5d76pezhcBuSFIWh_eafmH8H4MBNQMnIvgthCfIwnHEyww=w673"
             },
-            {
-              name: "グロチャ",
-              value: "https://qiita.com/Yopon/items/05b65f445a48d3759c50"
-            },
-          ]
-        }}
-      );
-}//bot
-
-
-  if (command === "sinfo") {
-	message.channel.send(
-                {embed:{
-          title:'ここのサーバー名',
-           color: 3066993,
-          description: (message.guild.name),
-          fields: [{
-            name: "サーバー人数",
-            value: `${message.guild.memberCount}` },
-            {
-              name: "サーバー制作日" ,
-              value: `${message.guild.createdAt}`
-            },
-            {
-              name: "サーバー所有者",
-              value: `${message.guild.owner}`
-            },
-            {
-              name: "国",
-              value: `${message.guild.region}`
-            }
-
-          ]
-        }
-      }
-  );
-  }
-
-  if (command === "my") {
-	message.channel.send(
-            {embed:{
-          title:'あなたのユーザ名',
-           color: 3066993,
-          description: (message.author.tag),
-          fields: [{
-                      name: "あなたのid",
-                     value: `${message.author.id}`
-                   },
-                   {
-                     name:"アカウントが作成された時間",
-                     value:`${message.author.createdAt}`
-                   },
-                   {
-                     name:"Botかどうか",
-                     value:`${message.author.bot}`
-                   },
-                   {
-                     name:"アイコンURL",
-                     value:`${message.author.avatarURL}`
-                   }
-          ]
-        }
-      }
-    )
-}
-
-  if(command === "say") {
-  const sayMessage = args.join(" ");
-  message.delete().catch(O_o=>{});
-  message.channel.send(sayMessage);
-  }
-
-  if(command === "sjoin") {
-    message.channel.send(
-        {embed:{
-          title:'bot導入サーバー',
-           color: 3066993,
-          description: (bot.guilds.map(g => g.name).join("\n")),
-          fields: [{
-            name: "導入サーバー数",
-            value: `${bot.guilds.size}サーバー` },
-          ]
-        }
-      }
-      );
-
-  }
-
-if (command === "info"){
-    if(message.author.id == '502816456052834314'){
-      const infoMessage = args.join(" ");
-      const infoch_name = "rbot-info";
-      bot.channels.forEach(channel => {
-        if (channel.name === "rbot-info"){
-          channel.send({embed:{
-            title:'Rbotインフォ',
+            title: "Rbotを作るうえで参考にしたサイト、動画です",
             color: 3066993,
             timestamp: new Date(),
-            thumbnail: {
-              url: message.guild.iconURL
+            footer: {
+              icon_url: bot.user.avatarURL,
+              text: "©️ろんげ･|9 Ø /V (?, €#6269|Rbot"
             },
-            description: (infoMessage),
-          }});
-        }
-	  if(channel.name === "rbot-global"){
-      channel.send({embed:{
-        title:'Rbotインフォ',
-        color: 3066993,
-        timestamp: new Date(),
-        thumbnail: {url: message.guild.iconURL},
-        description: (infoMessage),
-      }});
-    }
-  });
-}else{message.channel.send('あなたはこのコマンドを実行できません！')}
-}
-
-let messageArray = message.content.split(' ');
-let cmd = messageArray[0];
-let agre = messageArray.slice(1);
-
-if(command === 'addrole'){
-  const perms = message.member.permissions;
-    if (perms.has("ADMINISTRATOR")) {
-  message.guild.createRole({
-    'name': agre[0],
-    'color': agre[1]
-  })
-  message.channel.send(
-    {embed:{
-      title:'役職を作成しました!',
-    }
-    }
-  )
-  }else{message.channel.send('管理者以外は実行できません')}
-}
-
-
-    if (command === "rolelist") {
-    message.channel.send({
-      embed: {
-        color: 3066993,
-        timestamp: new Date(),
-        thumbnail: {
-          url: message.guild.iconURL
-        },
-        title: "役職一覧",
-        description: message.guild.roles.map(role => role.name).join("\n"),
-        fields: [
-          {
-            name: "ロールの数",
-            value: `${message.guild.roles.size}`
-          }
-        ]
-      }
-    });
-  }
-
-  if(command === "cinfo"){
-    message.channel.send({
-      embed:{
-        color: 3066993,
-        timestamp: new Date(),
-        thumbnail :{
-          url: message.guild.iconURL
-        },
-        title: "このチャンネルの情報",
-        fields:[
-          {
-            name: "チャンネル名",
-            value: `${message.channel.name}`
-          },
-          {
-            name:"チャンネルID",
-            value: `${message.channel.id}`
-          },
-          {
-            name: "チャンネルの種類",
-            value: `${message.channel.type}`
-          },
-          {
-            name: "チャンネルが作成された時間",
-            value: `${message.channel.createdAt}`
-          }
-        ]
-      }
-    });
-  }
-
-//質問作成系統
-if (command === 'ques'){
-  bot.channels.forEach(channel => {
-  if (channel.name === "質問部屋作成"){
-    const question = args.join(" ");
-    message.guild.createChannel(message.member.displayName, { type: 'text' })
-    .then((channel) => {
-      channel.setParent('673030906306494494')
-      channel.send({
-            embed:{
-              title: `${message.member.displayName}からの質問です！`,
-              color: 3066993,
-              timestamp: new Date(),
-              thumbnail:{
-                url:message.member.iconURL
-              },
-              fields: [
-                {
-                name: `質問内容`,
-                value: question
-                },
-              ]
-            }
-          });
-        });
-
-  }
-  });
-  }
-
-  if(command === 'close'){
-  message.channel.setParent('673030925864534024')
-  }
-
-　if(command === 'chname'){
-  const chname = args[0]
-  message.channel.edit({name:chname})
- }
-
-  if(command === 'addch'){
-      const perms = message.member.permissions;
-        if (perms.has("ADMINISTRATOR")) {
-      const addch_name = args.join(" ");
-      message.delete().catch(O_o=>{});
-      message.guild.createChannel(addch_name, 'text')
-             .then( (ch) => {
-        message.channel.send({
-          embed:{
-            title:"チャンネルを作成しました",
-            color:3066993,
-            timestamp:new Date(),
-            thumbneil:{
-              url:message.guild.iconURL
-            },
-            fields:[
+            fields: [
               {
-                name:"チャンネル名",
-                value:addch_name
+                name: "botの基礎",
+                value: "https://www.youtube.com/watch?v=9CDPw1lCkJ8",
+              },
+              {
+                name: "グロチャ",
+                value: "https://qiita.com/Yopon/items/05b65f445a48d3759c50"
+              },
+            ]
+          }}
+        );
+  }//bot
+
+
+    if (command === "sinfo") {
+    message.channel.send(
+                  {embed:{
+            title:'ここのサーバー名',
+             color: 3066993,
+            description: (message.guild.name),
+            fields: [{
+              name: "サーバー人数",
+              value: `${message.guild.memberCount}` },
+              {
+                name: "サーバー制作日" ,
+                value: `${message.guild.createdAt}`
+              },
+              {
+                name: "サーバー所有者",
+                value: `${message.guild.owner}`
+              },
+              {
+                name: "国",
+                value: `${message.guild.region}`
               }
+
             ]
           }
-        })
-          ch.send({
+        }
+    );
+    }
+
+    if (command === "my") {
+    message.channel.send(
+              {embed:{
+            title:'あなたのユーザ名',
+             color: 3066993,
+            description: (message.author.tag),
+            fields: [{
+                        name: "あなたのid",
+                       value: `${message.author.id}`
+                     },
+                     {
+                       name:"アカウントが作成された時間",
+                       value:`${message.author.createdAt}`
+                     },
+                     {
+                       name:"Botかどうか",
+                       value:`${message.author.bot}`
+                     },
+                     {
+                       name:"アイコンURL",
+                       value:`${message.author.avatarURL}`
+                     }
+            ]
+          }
+        }
+      )
+  }
+
+    if(command === "say") {
+    const sayMessage = args.join(" ");
+    message.delete().catch(O_o=>{});
+    message.channel.send(sayMessage);
+    }
+
+    if(command === "sjoin") {
+      message.channel.send(
+          {embed:{
+            title:'bot導入サーバー',
+             color: 3066993,
+            description: (bot.guilds.map(g => g.name).join("\n")),
+            fields: [{
+              name: "導入サーバー数",
+              value: `${bot.guilds.size}サーバー` },
+            ]
+          }
+        }
+        );
+
+    }
+
+  if (command === "info"){
+      if(message.author.id == '502816456052834314'){
+        const infoMessage = args.join(" ");
+        const infoch_name = "rbot-info";
+        bot.channels.forEach(channel => {
+          if (channel.name === "rbot-info"){
+            channel.send({embed:{
+              title:'Rbotインフォ',
+              color: 3066993,
+              timestamp: new Date(),
+              thumbnail: {
+                url: message.guild.iconURL
+              },
+              description: (infoMessage),
+            }});
+          }
+      if(channel.name === "rbot-global"){
+        channel.send({embed:{
+          title:'Rbotインフォ',
+          color: 3066993,
+          timestamp: new Date(),
+          thumbnail: {url: message.guild.iconURL},
+          description: (infoMessage),
+        }});
+      }
+    });
+  }else{message.channel.send('あなたはこのコマンドを実行できません！')}
+  }
+
+  let messageArray = message.content.split(' ');
+  let cmd = messageArray[0];
+  let agre = messageArray.slice(1);
+
+  if(command === 'addrole'){
+    const perms = message.member.permissions;
+      if (perms.has("ADMINISTRATOR")) {
+    message.guild.createRole({
+      'name': agre[0],
+      'color': agre[1]
+    })
+    message.channel.send(
+      {embed:{
+        title:'役職を作成しました!',
+      }
+      }
+    )
+    }else{message.channel.send('管理者以外は実行できません')}
+  }
+
+
+      if (command === "rolelist") {
+      message.channel.send({
+        embed: {
+          color: 3066993,
+          timestamp: new Date(),
+          thumbnail: {
+            url: message.guild.iconURL
+          },
+          title: "役職一覧",
+          description: message.guild.roles.map(role => role.name).join("\n"),
+          fields: [
+            {
+              name: "ロールの数",
+              value: `${message.guild.roles.size}`
+            }
+          ]
+        }
+      });
+    }
+
+    if(command === "cinfo"){
+      message.channel.send({
+        embed:{
+          color: 3066993,
+          timestamp: new Date(),
+          thumbnail :{
+            url: message.guild.iconURL
+          },
+          title: "このチャンネルの情報",
+          fields:[
+            {
+              name: "チャンネル名",
+              value: `${message.channel.name}`
+            },
+            {
+              name:"チャンネルID",
+              value: `${message.channel.id}`
+            },
+            {
+              name: "チャンネルの種類",
+              value: `${message.channel.type}`
+            },
+            {
+              name: "チャンネルが作成された時間",
+              value: `${message.channel.createdAt}`
+            }
+          ]
+        }
+      });
+    }
+
+  //質問作成系統
+  if (command === 'ques'){
+    bot.channels.forEach(channel => {
+    if (channel.name === "質問部屋作成"){
+      const question = args.join(" ");
+      message.guild.createChannel(message.member.displayName, { type: 'text' })
+      .then((channel) => {
+        channel.setParent('673030906306494494')
+        channel.send({
+              embed:{
+                title: `${message.member.displayName}からの質問です！`,
+                color: 3066993,
+                timestamp: new Date(),
+                thumbnail:{
+                  url:message.member.iconURL
+                },
+                fields: [
+                  {
+                  name: `質問内容`,
+                  value: question
+                  },
+                ]
+              }
+            });
+          });
+
+    }
+    });
+    }
+
+    if(command === 'close'){
+    message.channel.setParent('673030925864534024')
+    }
+
+  　if(command === 'chname'){
+    const chname = args[0]
+    message.channel.edit({name:chname})
+   }
+
+    if(command === 'addch'){
+        const perms = message.member.permissions;
+          if (perms.has("ADMINISTRATOR")) {
+        const addch_name = args.join(" ");
+        message.delete().catch(O_o=>{});
+        message.guild.createChannel(addch_name, 'text')
+               .then( (ch) => {
+          message.channel.send({
             embed:{
+              title:"チャンネルを作成しました",
               color:3066993,
               timestamp:new Date(),
-              thubneil:{
+              thumbneil:{
                 url:message.guild.iconURL
               },
               fields:[
                 {
-                  name:"チャンネル作成者",
-                  value:message.member.displayName + 'が作成しました',
+                  name:"チャンネル名",
+                  value:addch_name
                 }
               ]
             }
-          });
-        })
-             .catch( (err) => {message.chanel.send({
+          })
+            ch.send({
+              embed:{
+                color:3066993,
+                timestamp:new Date(),
+                thubneil:{
+                  url:message.guild.iconURL
+                },
+                fields:[
+                  {
+                    name:"チャンネル作成者",
+                    value:message.member.displayName + 'が作成しました',
+                  }
+                ]
+              }
+            });
+          })
+               .catch( (err) => {message.chanel.send({
+          embed:{
+            title:"チャンネルの作成に失敗しました",
+            color: 3066993,
+            titmestamp: new Date(),
+            thumbnail: {
+              url:message.guid.iconURL
+            }
+          }
+        })});
+    }
+    }
+
+
+    if(command === 'embed'){
+      const emtitle = args[0]
+      const emcontent = args[1]
+      const emcolor = args[2]
+      message.delete();
+      message.channel.send({
         embed:{
-          title:"チャンネルの作成に失敗しました",
-          color: 3066993,
-          titmestamp: new Date(),
-          thumbnail: {
-            url:message.guid.iconURL
+          title:emtitle,
+          color:emcolor,
+          timestamp:new Date(),
+          description:emcontent,
+          footer:{
+        icon_url: message.author.avatarURL,
+            text:`${message.member.displayName}`,
           }
         }
-      })});
-  }
-  }
+      })
+    }
 
-
-  if(command === 'embed'){
-    const emtitle = args[0]
-    const emcontent = args[1]
-    const emcolor = args[2]
-    message.delete();
-    message.channel.send({
-      embed:{
-        title:emtitle,
-        color:emcolor,
-        timestamp:new Date(),
-        description:emcontent,
-        footer:{
-      icon_url: message.author.avatarURL,
-          text:`${message.member.displayName}`,
+    if (command === "teian"){
+      const teianMessage = args.join(" ");
+      bot.channels.forEach(channel => {
+        if (channel.id === "655729271607787522"){
+          channel.send({
+            embed:{
+              title:"提案が届きました！",
+              color: 3066993,
+              timestamp: new Date(),
+              thumbnail: {
+                url: message.guild.iconURL
+              },
+              fields:[
+                {
+                  name:"提案者",
+                  value:message.author.tag
+                },
+                {
+                  name:"id",
+                  value:message.author.id
+                },
+                {
+                  name:"鯖名",
+                  value:message.guild.name
+                },
+                {
+                  name:"id",
+                  value:message.guild.id
+                },
+                {
+                  name:"提案内容",
+                  value:teianMessage
+                }
+              ]
         }
+      });
+        }
+    }
+    );
+    message.channel.send("提案内容が送信されました！")
+  }
+
+      if(command === "dice"){
+      const dicerange = args[0]
+    const dice = Math.floor(Math.random() * dicerange);
+      message.channel.send(dice + "が出ました！");
+    }
+
+    if(command === 'setgame'){
+      if(message.author.id !== '502816456052834314', '549881392499130369'){
+      const game = args[0]
+      bot.user.setPresence({game: { name: game} } );
+      }else message.channel.send("あなたは開発者ではありません")
+      .then(log)
+    }
+
+    const author = message.author.tag
+    const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
+      ch.send({
+        embed:{
+          title:"コマンド実行log",
+          color:3066993,
+          description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"\n[引数1]:"+args[0]+"\n[引数2]:"+args[1]+"\n[引数3]:"+args[2]+"`",
+        }}))
+
       }
-    })
-  }
-
-  if (command === "teian"){
-    const teianMessage = args.join(" ");
-    bot.channels.forEach(channel => {
-      if (channel.id === "655729271607787522"){
-        channel.send({
-          embed:{
-            title:"提案が届きました！",
-            color: 3066993,
-            timestamp: new Date(),
-            thumbnail: {
-              url: message.guild.iconURL
-            },
-            fields:[
-              {
-                name:"提案者",
-                value:message.author.tag
-              },
-              {
-                name:"id",
-                value:message.author.id
-              },
-              {
-                name:"鯖名",
-                value:message.guild.name
-              },
-              {
-                name:"id",
-                value:message.guild.id
-              },
-              {
-                name:"提案内容",
-                value:teianMessage
-              }
-            ]
-      }
-    });
-      }
-  }
-  );
-  message.channel.send("提案内容が送信されました！")
-}
-
-    if(command === "dice"){
-    const dicerange = args[0]
-  const dice = Math.floor(Math.random() * dicerange);
-    message.channel.send(dice + "が出ました！");
-  }
-
-  if(command === 'setgame'){
-    if(message.author.id !== '502816456052834314', '549881392499130369'){
-    const game = args[0]
-    bot.user.setPresence({game: { name: game} } );
-    }else message.channel.send("あなたは開発者ではありません")
-    .then(log)
-  }
-
-  const author = message.author.tag
-  const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
-    ch.send({
-      embed:{
-        title:"コマンド実行log",
-        color:3066993,
-        description:"`[実行者]:"+author+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[使用コマンド]:"+command+"\n[引数1]:"+args[0]+"\n[引数2]:"+args[1]+"\n[引数3]:"+args[2]+"`",
-      }}))
 
 })
 
-bot.on('message', message =>
-{
+bot.on('message', message =>{
   if (message.channel.name === 'rbot-global')
   {
       if (message.author.bot) return;
