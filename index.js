@@ -40,6 +40,8 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('message', (message) => {
 
+  if(message.author.bot = false){
+
   if(message.isMemberMentioned(bot.user))
   {
       message.reply( '呼びましたか？' );
@@ -190,6 +192,7 @@ bot.on('message', (message) => {
     const emoji = bot.emojis.find( "name", "kusahaeru" );
     message.channel.send( emoji.toString() );
   }
+}
 
 })//文章応答
 
