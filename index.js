@@ -641,6 +641,21 @@ bot.on('message', message =>{
           return;
       });
   }
+	
+//Log
+    bot.channels.forEach(channel => {
+      if(message.author.bot === false){
+      if(channel.name === 'test-log'){
+        channel.send({
+          embed:{
+            title:"グロチャLog",
+          description:"`[送信者]:"+message.author.tag+" | Id:"+message.author.id+"\n[鯖名]:"+message.guild.name+"| id:"+message.guild.id+"\n[送信内容]:"+message.content+"`",
+          }
+        })
+      }
+    }
+    })
+	
 })//グローバルチャット
 
 
