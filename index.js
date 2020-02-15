@@ -585,7 +585,7 @@ bot.on('message', message => {
     }
 
     const author = message.author.tag
-    const log =bot.channels.filter(ch => ch.name === 'rbot-log-0716').forEach(ch =>
+    const log =bot.channels.filter(ch => ch.id === '654262352400613376').forEach(ch =>
       ch.send({
         embed:{
           title:"コマンド実行log",
@@ -645,7 +645,7 @@ bot.on('message', message =>{
 //Log
     bot.channels.forEach(channel => {
       if(message.author.bot === false){
-      if(channel.name === 'test-log'){
+      if(channel.id === '654262352400613376'){
         channel.send({
           embed:{
             title:"グロチャLog",
