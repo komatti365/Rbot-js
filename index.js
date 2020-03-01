@@ -683,7 +683,7 @@ bot.on('message', async (msg) => {
 });//url展開
 
 bot.on('message', async (msg) => {
-  if(msg.content == "rs!help") return;
+  if(msg.content !== "rs!help"){
   if (!msg.content.toLowerCase().startsWith(config.prefix) || msg.author.bot) return;
   const args = msg.content.slice(config.prefix.length).split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -939,7 +939,7 @@ bot.on('message', async (msg) => {
     const removeReaction = async (m, msg, emoji) => {
   try { m.reactions.find(r => r.emoji.name == emoji).users.remove(msg.author.id); } catch(err) {}
     }
-
+  }
     }//command helpの()
 });//client.onの()
 
