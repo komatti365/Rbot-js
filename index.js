@@ -988,7 +988,7 @@ bot.channels.forEach(channel => {
         return;
     });
 	
-  bot.user.setUsername(bot.user.username + "！" + "vr." + version);
+  bot.user.setUsername("Rbot！" + "vr." + version);
 });
 
 
