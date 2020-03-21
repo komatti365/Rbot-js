@@ -4,6 +4,17 @@ const bot = new Discord.Client();
 const { Client, Attachment } = require('discord.js');
 const fs = require('fs');
 
+const now = new Date();
+const year = now.getFullYear();
+const mon = now.getMonth() + 1;
+const day = now.getDate();
+const hour = now.getHours();
+const min = now.getMinutes();
+
+const hour_jp = hour - 3;
+
+const version = 1.0
+
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === '入退室ログ');
   if (!channel) return;
@@ -29,24 +40,23 @@ bot.on('message', (message) => {
 
   if(message.isMemberMentioned(bot.user))
   {
-      message.reply( '呼びましたか？' );
+      message.reply( 'んあ？' );
       return;
   }
 
   if(message.content.startsWith("おやすみ")) {
-      message.channel.sendMessage('お疲れ様でした!どうぞごゆっくり疲れをいやしてください！')
+      message.channel.sendMessage('お疲れ様でした!どうぞゆっくり疲れをいやしてください！')
   }//おやすみ
 
   if(message.content.startsWith("おはよ")) {
       message.channel.sendMessage('おはようございます！朝ごはんはちゃんと食べてね！')
   }//おはよう
 
-    if(message.content == 'どうにかして') {
-      message.channel.sendMessage('すみません…。私にはどうにもできません…。')
-  }
-
       if(message.content == '暇') {
       message.channel.sendMessage('平和ですねぇ…。')
+  }
+	      if(message.content == 'こんにち') {
+      message.channel.sendMessage('こんです～')
   }
 
       if(message.content.startsWith("こんにちは")) {
@@ -946,7 +956,7 @@ bot.on('message', async (msg) => {
 bot.on('ready', message =>
 {
 
-bot.user.setPresence({ game: { name: "[r!help]でヘルプを表示!"} });
+bot.user.setPresence({ game: { name: "[r!help]でヘルプを表示!" + "現在のバージョン：" + version} });
 	console.log('起動');
       const ch_name = "rbot起動ログ";
 
@@ -977,6 +987,8 @@ bot.channels.forEach(channel => {
         }
         return;
     });
+	
+  bot.user.setUsername(bot.user.username + "vr." + version);
 });
 
 
