@@ -13,7 +13,7 @@ const min = now.getMinutes();
 
 const hour_jp = hour - 3;
 
-const version = 1.0
+const version = "1.0";
 
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === '入退室ログ');
@@ -988,7 +988,7 @@ bot.channels.forEach(channel => {
         return;
     });
 	
-  bot.user.setUsername(bot.user.username + "vr." + version);
+  bot.user.setUsername(bot.user.username + "！" + "vr." + version);
 });
 
 
