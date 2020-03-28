@@ -15,6 +15,135 @@ const hour_jp = hour - 3;
 
 const version = "1.0";
 
+
+  let ronge
+  let ronge2
+  let Rbot
+  let Rbot2
+  let Rbot_sub
+  let Rbot_sub2
+  
+  bot.on('message', message =>{
+           bot.users.forEach(user => {
+    if(user.id === "502816456052834314"){
+      ronge = user.presence.status;
+      if(user.presence.status === "online"　|| user.presence.status === "idle"){
+        ronge2 =  ":green_circle:" 
+      }else {ronge2 =  ":red_circle:" }
+    }
+  })//ronge
+  
+    bot.users.forEach(user => {
+    if(user.id === "650973245792714762"){
+      Rbot = user.presence.status;
+      if(user.presence.status === "online"){
+        Rbot2 =  ":green_circle:" 
+      }else {Rbot2 =  ":red_circle:" }
+    }
+  })//Rbot
+  
+    bot.users.forEach(user => {
+    if(user.id === "634020309464383488"){
+      Rbot_sub = user.presence.status;
+      if(user.presence.status === "online"){
+        Rbot_sub2 =  ":green_circle:" 
+      }else {Rbot_sub2 =  ":red_circle:" }
+    }
+  })//Rbot_sub
+  
+  bot.channels.forEach(channel => {
+    if(channel.id === "693322854107709481"){
+      channel.fetchMessage("693323017828433970")
+      .then(msg => {
+        
+        const online_panel = {
+          title:"Rbot関連アカウントのオンライン状況 :thinking:",
+          fields:[
+            {
+              name:"[制作者]ろんげ･|9 Ø /V (?, €",
+              value:ronge + " " + ronge2
+            },
+            {
+              name:"[Bot]Rbot",
+              value:Rbot + " " + Rbot2
+            },
+            {
+              name:"[サブBot]Rbot-sub",
+              value:Rbot_sub + " " + Rbot_sub2
+            }
+          ]
+        }
+        
+        
+        msg.edit({embed:online_panel})
+        
+        
+      })
+    }
+  })
+    
+    
+      bot.users.forEach(user => {
+    if(user.id === "502816456052834314"){
+      ronge = user.presence.status;
+      if(user.presence.status === "online"　|| user.presence.status === "idle"){
+        ronge2 =  ":green_circle:" 
+      }else {ronge2 =  ":red_circle:" }
+    }
+  })//ronge
+  
+    bot.users.forEach(user => {
+    if(user.id === "650973245792714762"){
+      Rbot = user.presence.status;
+      if(user.presence.status === "online"){
+        Rbot2 =  ":green_circle:" 
+      }else {Rbot2 =  ":red_circle:" }
+    }
+  })//Rbot
+  
+    bot.users.forEach(user => {
+    if(user.id === "634020309464383488"){
+      Rbot_sub = user.presence.status;
+      if(user.presence.status === "online"){
+        Rbot_sub2 =  ":green_circle:" 
+      }else {Rbot_sub2 =  ":red_circle:" }
+    }
+  })//Rbot_sub
+  
+  bot.channels.forEach(channel => {
+    if(channel.id === "693322854107709481"){
+      channel.fetchMessage("693323017828433970")
+      .then(msg => {
+        
+        const online_panel = {
+          title:"Rbot関連アカウントのオンライン状況 :thinking:",
+          fields:[
+            {
+              name:"[制作者]ろんげ･|9 Ø /V (?, €",
+              value:ronge + " " + ronge2
+            },
+            {
+              name:"[Bot]Rbot",
+              value:Rbot + " " + Rbot2
+            },
+            {
+              name:"[サブBot]Rbot-sub",
+              value:Rbot_sub + " " + Rbot_sub2
+            }
+          ]
+        }
+        
+        
+        msg.edit({embed:online_panel})
+        
+        
+      })
+    }
+  })
+    
+    
+    })
+
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === '入退室ログ');
   if (!channel) return;
@@ -990,75 +1119,6 @@ bot.channels.forEach(channel => {
 	
   bot.user.setUsername("Rbot！" + "vr." + version);
 });
-
-
-  bot.on('ready', message =>{
-  
-  let ronge
-  let ronge2
-  let Rbot
-  let Rbot2
-  let Rbot_sub
-  let Rbot_sub2
-  
-  bot.users.forEach(user => {
-    if(user.id === "502816456052834314"){
-      ronge = user.presence.status;
-      if(user.presence.status === "online"　|| user.presence.status === "idle"){
-        ronge2 =  ":green_circle:" 
-      }else {ronge2 =  ":red_circle:" }
-    }
-  })//ronge
-  
-    bot.users.forEach(user => {
-    if(user.id === "650973245792714762"){
-      Rbot = user.presence.status;
-      if(user.presence.status === "online"){
-        Rbot2 =  ":green_circle:" 
-      }else {Rbot2 =  ":red_circle:" }
-    }
-  })//Rbot
-  
-    bot.users.forEach(user => {
-    if(user.id === "634020309464383488"){
-      Rbot_sub = user.presence.status;
-      if(user.presence.status === "online"){
-        Rbot_sub2 =  ":green_circle:" 
-      }else {Rbot_sub2 =  ":red_circle:" }
-    }
-  })//Rbot_sub
-  
-  bot.channels.forEach(channel => {
-    if(channel.id === "693322854107709481"){
-      channel.fetchMessage("693323017828433970")
-      .then(msg => {
-        
-        const online_panel = {
-          title:"Rbot関連アカウントのオンライン状況 :thinking:",
-          fields:[
-            {
-              name:"[制作者]ろんげ･|9 Ø /V (?, €",
-              value:ronge + " " + ronge2
-            },
-            {
-              name:"[Bot]Rbot",
-              value:Rbot + " " + Rbot2
-            },
-            {
-              name:"[サブBot]Rbot-sub",
-              value:Rbot_sub + " " + Rbot_sub2
-            }
-          ]
-        }
-        
-        
-        msg.edit({embed:online_panel})
-        
-        
-      })
-    }
-  })
-});//panel 
 
 
 bot.login(process.env.DISCORD_BOT_TOKEN);
