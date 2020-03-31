@@ -805,7 +805,7 @@ bot.on('message', async (msg) => {
     return;
   }
   channel.fetchMessage(message_id)
-    .then(msg => msg.channel.send({
+    .then(msg => message.channel.send({
       embed:{
         timestamp: new Date(),
         author:{
