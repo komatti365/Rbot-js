@@ -790,9 +790,9 @@ bot.on('message', async message => {
   }
 });//evalコマンド
 
-bot.on('message', async (msg) => {
+bot.on('message', async (message) => {
   const re = new RegExp('https://discordapp.com/channels/([0-9]{18})/([0-9]{18})/([0-9]{18})')
-  const results = msg.content.match(re)
+  const results = message.content.match(re)
   if (!results) {
       return
   }
@@ -807,15 +807,15 @@ bot.on('message', async (msg) => {
   channel.fetchMessage(message_id)
     .then(msg => message.channel.send({
       embed:{
-        timestamp: new Date(),
         author:{
-          name:msg.author.tag,
-          icon_url:msg.author.iconURL
+          name:"メッセージ送信者：" + msg.author.tag + "\nID：" + msg.author.id,
+          icon_url:msg.author.displayAvatarURL
         },
         footer:{
-          text:msg.channel.name,
+          text:`サーバー名：${msg.guild.name}\n ID：${msg.guild.id}\nチャンネル名：${msg.channel.name}\nID：${msg.channel.id}`,
+          icon_url:msg.guild.iconURL,
         },
-        description:msg.content
+        description:"送信されたメッセージ：```" + msg.content + "```",
       }
     }))
     .catch(console.error);
