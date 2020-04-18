@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
 const bot = new Discord.Client();
-const { Client, Attachment } = require('discord.js');
+//const { Client, Attachment } = require('discord.js');
 const fs = require('fs');
 
 var t,y,mo,d,h,m,s,nowtime;
