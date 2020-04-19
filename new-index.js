@@ -8,9 +8,9 @@ var t,y,mo,d,h,m,s,nowtime;
 function time(){
   process.env.TZ = 'Asia/Tokyo';
   t=new Date()
-	y=t.getFullYear();
+  y=t.getFullYear();
   mo=t.getMonth();
- 	mo=(mo + 1);
+  mo=(mo + 1);
   d=t.getDate();
   h=t.getHours();
   h=('0'+h).slice(-2);
