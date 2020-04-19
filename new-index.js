@@ -274,7 +274,7 @@ bot.on('message', async (message) => {
 bot.on('message', async message => {
 
     const author = message.author.tag
-    const log = bot.channels.cache.filter(ch => ch.id === config.log_channnel).forEach(ch =>
+    const log = bot.channels.cache.filter(ch => ch.id === config.log_channel).forEach(ch =>
         ch.send({
             embed:{
                 title:"コマンド実行log",
