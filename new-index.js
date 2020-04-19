@@ -1010,4 +1010,4 @@ bot.on('ready', () => {
 
 
 
-bot.login("NjI0ODE4NDk0NDc4ODc2Njcy.Xou7yg.VZIBpULTMWK8Ce11y12IofzZooo");
+bot.login(process.env.DISCORD_BOT_TOKEN);
