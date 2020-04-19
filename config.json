@@ -1,9 +1,10 @@
 {
     "prefix": "r!",
-    "log_channnel": "",
+    "log_channel": "", 
     "admin_id": "",
     "official_guild_id": "",
     "question_opench_id": "",
     "question_closech_id": "",
-    "teian_channel_id": ""
+    "teian_channel_id": "",
+    "コメント": "log_channel:コマンドログの部分  admin_id:開発者コマンド official: 公式鯖用機能 質問とか question_opench:質問のopenカテゴリID question_closech:質問のcloseカテゴリID  teian_channel_id: 提案コマンドの受け取るチャンネルID"
 }
