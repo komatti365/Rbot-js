@@ -1,3 +1,9 @@
 {
-    "prefix":"r!"
+    "prefix": "r!",
+    "log_channnel": "",
+    "admin_id": "",
+    "official_guild_id": "",
+    "question_opench_id": "",
+    "question_closech_id": "",
+    "teian_channel_id": ""
 }
