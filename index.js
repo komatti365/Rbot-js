@@ -158,8 +158,7 @@ bot.on('message', async (message) => {
         message.reply( 'んあ？' );
         return;
     }
-
-
+    if(message.author.bot !== true){
     if (message.content.startsWith("おやすみ")) return message.channel.send('お疲れ様でした!どうぞゆっくり疲れをいやしてください！')
     if (message.content.startsWith("おはよ")) return message.channel.send('おはようございます！朝ごはんはちゃんと食べてね！')
     if (message.content.startsWith("こんにちは")) return message.channel.send('こんにちは！')
@@ -167,6 +166,7 @@ bot.on('message', async (message) => {
     if (message.content.startsWith("こんばん")) return message.channel.send('こんばんわ！いい夜ですね！')
     if (message.content.startsWith("疲れた")) return message.channel.send('お疲れ様です')
     if (message.content.startsWith("暇")) return message.channel.send('平和ですねぇ…。')
+    }
 
     if (message.content.startsWith("ロード")){ 
         var emoji = bot.emojis.cache.find( emoji => emoji.name ===  "loading" );
@@ -349,6 +349,9 @@ bot.on('message', async message => {
                 embed:{
                     title:'あなたのユーザ名',
                     color: 3066993,
+                    thumbnail:{
+                        url:message.author.avatarURL
+                    },
                     description: (message.author.tag),
                     fields: [
                         {
@@ -368,9 +371,9 @@ bot.on('message', async message => {
             })
         break
         case "say":
-            if(!args[0]) return;
-            message.delete()
-            message.channel.send(args[0]);
+            const say_message = args.join(" ");
+            message.delete().catch(msg=>{})
+            message.channel.send(say_message);
         break
         case "sjoin":
             message.channel.send({
@@ -625,7 +628,29 @@ bot.on('message', async message => {
                 if(!game) return;
                 bot.user.setActivity(game, {type: "PLAYING"});
             }else message.channel.send("あなたは開発者ではありません")
-            
+        break
+        case "omikuji":
+            message.channel.send("おみくじを始めるよー");
+            const omikuji_message = await message.channel.send({embed:{description:"ガラガラガラ………………スッ"}})
+            var omikujis = ["thinking吉", "Rbot吉", "兄吉" , "小吉", "末吉", "中吉", "吉", "凶", "大吉",]; //ここにおみくじの結果を追加できるよ
+            var random = Math.floor(Math.random() * omikujis.length);
+            const omikuji_embed = {embed:{title:"結果!!",color:3066993,description:omikujis[random],settimestamp}}
+            function omikuji_kekka(){
+                omikuji_message.edit(omikuji_embed)
+            }
+            setTimeout(omikuji_kekka,3000)
+        break
+        case "userinfo":
+            const user = getUserFromMention(args[0]);
+            message.channel.send({
+                embed:{
+                    title:`${user.username}さんの情報`,
+                    thumbnail:{
+                        url:user.displayAvatarURL,
+                    },
+                    description:`[name]:${user.tag} \n \n [id]:${user.id} \n \n [created]:${user.createdAt}\n\n[if bot]${user.bot}\n\n [avatarURL]${user.avatarURL}`,
+                }
+    })
         break
 
     }
@@ -633,7 +658,7 @@ bot.on('message', async message => {
 
 bot.on('message', message =>{
     if (message.channel.name === 'rbot-global'){
-        
+
         if (message.author.bot) return;
         if (message.attachments.size <= 0)
         {
@@ -721,11 +746,11 @@ bot.on('message', async (msg) => {
         if (!msg.content.toLowerCase().startsWith(config.prefix) || msg.author.bot) return;
         const args = msg.content.slice(config.prefix.length).split(/ +/g);
         const command = args.shift().toLowerCase();
-        
+
         if (command == 'help') {
             msg.delete()
             const options = { limit: 15 * 1000, min: 1, max: 10, page: 1}//helpのページ
-            
+
             const pages = {
                 1: {
                     title:"Rbotのヘルプです",
@@ -887,6 +912,10 @@ bot.on('message', async (msg) => {
                         {
                             name:"teian",
                             value:"開発者に提案を送信できます。"
+                        },
+                        {
+                            name:"omikuji",
+                            value:"おみくじが引けます"
                         },
                     ]
                 },//ページ6
