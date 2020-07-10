@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ronge-0716/Rbot-js#readme",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "canvas": "^2.6.1",
+    "discord.js": "^11.6.4"
   }
 }

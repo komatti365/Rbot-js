@@ -6,5 +6,9 @@
     "question_opench_id": "673030906306494494",
     "question_closech_id": "673030925864534024",
     "teian_channel_id": "655729271607787522",
-    "コメント": "log_channel:コマンドログの部分  admin_id:開発者コマンド official: 公式鯖用機能 質問とか question_opench:質問のopenカテゴリID question_closech:質問のcloseカテゴリID  teian_channel_id: 提案コマンドの受け取るチャンネルID"
+    "コメント": "log_channel:コマンドログの部分  admin_id:開発者コマンド official: 公式鯖用機能 質問とか question_opench:質問のopenカテゴリID question_closech:質問のcloseカテゴリID  teian_channel_id: 提案コマンドの受け取るチャンネルID",
+    "debug_kotoba":"on",
+    "debug_command":"on",
+    "debug_globalchat":"on",
+    "debug_server":"628130391315841035"
 }
