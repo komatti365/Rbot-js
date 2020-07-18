@@ -3,6 +3,7 @@ const config = require('./config.json');
 const bot = new Discord.Client();
 const { Client, Attachment } = require('discord.js');
 const fs = require('fs');
+const Canvas = require('canvas');
 
 const now = new Date();
 const year = now.getFullYear();
@@ -22,40 +23,40 @@ const version = "1.0";
   let Rbot2
   let Rbot_sub
   let Rbot_sub2
-  
+
   bot.on('message', message =>{
            bot.users.forEach(user => {
     if(user.id === "502816456052834314"){
       ronge = user.presence.status;
       if(user.presence.status === "online"　|| user.presence.status === "idle"){
-        ronge2 =  ":green_circle:" 
+        ronge2 =  ":green_circle:"
       }else {ronge2 =  ":red_circle:" }
     }
   })//ronge
-  
+
     bot.users.forEach(user => {
     if(user.id === "650973245792714762"){
       Rbot = user.presence.status;
       if(user.presence.status === "online"){
-        Rbot2 =  ":green_circle:" 
+        Rbot2 =  ":green_circle:"
       }else {Rbot2 =  ":red_circle:" }
     }
   })//Rbot
-  
+
     bot.users.forEach(user => {
     if(user.id === "634020309464383488"){
       Rbot_sub = user.presence.status;
       if(user.presence.status === "online"){
-        Rbot_sub2 =  ":green_circle:" 
+        Rbot_sub2 =  ":green_circle:"
       }else {Rbot_sub2 =  ":red_circle:" }
     }
   })//Rbot_sub
-  
+
   bot.channels.forEach(channel => {
     if(channel.id === "693322854107709481"){
       channel.fetchMessage("693323017828433970")
       .then(msg => {
-        
+
         const online_panel = {
           title:"Rbot関連アカウントのオンライン状況 :thinking:",
           fields:[
@@ -73,34 +74,33 @@ const version = "1.0";
             }
           ]
         }
-        
-        
+
         msg.edit({embed:online_panel})
-        
-        
+
+
       })
     }
   })
-    
-    
+
+
       bot.users.forEach(user => {
     if(user.id === "502816456052834314"){
       ronge = user.presence.status;
       if(user.presence.status === "online"　|| user.presence.status === "idle"){
-        ronge2 =  ":green_circle:" 
+        ronge2 =  ":green_circle:"
       }else {ronge2 =  ":red_circle:" }
     }
   })//ronge
-  
+
     bot.users.forEach(user => {
     if(user.id === "650973245792714762"){
       Rbot = user.presence.status;
       if(user.presence.status === "online"){
-        Rbot2 =  ":green_circle:" 
+        Rbot2 =  ":green_circle:"
       }else {Rbot2 =  ":red_circle:" }
     }
   })//Rbot
-  
+
     bot.users.forEach(user => {
     if(user.id === "634020309464383488"){
       Rbot_sub = user.presence.status;
@@ -109,12 +109,12 @@ const version = "1.0";
       }else {Rbot_sub2 =  ":red_circle:" }
     }
   })//Rbot_sub
-  
+
   bot.channels.forEach(channel => {
     if(channel.id === "693322854107709481"){
       channel.fetchMessage("693323017828433970")
       .then(msg => {
-        
+
         const online_panel = {
           title:"Rbot関連アカウントのオンライン状況 :thinking:",
           fields:[
@@ -132,16 +132,16 @@ const version = "1.0";
             }
           ]
         }
-        
-        
+
+
         msg.edit({embed:online_panel})
-        
-        
+
+
       })
     }
   })
-    
-    
+
+
     })
 
 bot.on('guildMemberAdd', member => {
@@ -162,6 +162,32 @@ bot.on('guildMemberAdd', member => {
   });
 });
 
+//ch用json定義
+"use strict"
+ 
+// JSONファイル出力関数
+const write_json = ( filename, obj ) =>
+{
+  fs.writeFile( filename, JSON.stringify( obj, null, '\t' ), (e) => {
+    if ( e ) {
+      console.log( e );
+      throw e;
+    }
+  });
+}
+
+const ch_log_filename = 'ch_log.json';
+
+let ch_log ={};
+
+try {
+  const str = fs.readFileSync( ch_log_filename, 'utf8' );
+  ch_log = JSON.parse( str );
+}
+catch ( err ) {
+  ch_log.channels = new Array();
+}
+//ch用json定義
 
 bot.on('message', (message) => {
 
@@ -576,57 +602,57 @@ bot.on('message', message => {
     message.channel.edit({name:chname})
    }
 
-    if(command === 'addch'){
-        const perms = message.member.permissions;
-          if (perms.has("ADMINISTRATOR")) {
-        const addch_name = args.join(" ");
-        message.delete().catch(O_o=>{});
-        message.guild.createChannel(addch_name, 'text')
-               .then( (ch) => {
-          message.channel.send({
-            embed:{
-              title:"チャンネルを作成しました",
-              color:3066993,
-              timestamp:new Date(),
-              thumbneil:{
-                url:message.guild.iconURL
-              },
-              fields:[
-                {
-                  name:"チャンネル名",
-                  value:addch_name
-                }
-              ]
-            }
-          })
-            ch.send({
-              embed:{
-                color:3066993,
-                timestamp:new Date(),
-                thubneil:{
-                  url:message.guild.iconURL
-                },
-                fields:[
-                  {
-                    name:"チャンネル作成者",
-                    value:message.member.displayName + 'が作成しました',
-                  }
-                ]
-              }
-            });
-          })
-               .catch( (err) => {message.chanel.send({
-          embed:{
-            title:"チャンネルの作成に失敗しました",
-            color: 3066993,
-            titmestamp: new Date(),
-            thumbnail: {
-              url:message.guid.iconURL
-            }
-          }
-        })});
-    }
-    }
+    // if(command === 'addch'){
+    //     const perms = message.member.permissions;
+    //       if (perms.has("ADMINISTRATOR")) {
+    //     const addch_name = args.join(" ");
+    //     message.delete().catch(O_o=>{});
+    //     message.guild.createChannel(addch_name, 'text')
+    //            .then( (ch) => {
+    //       message.channel.send({
+    //         embed:{
+    //           title:"チャンネルを作成しました",
+    //           color:3066993,
+    //           timestamp:new Date(),
+    //           thumbneil:{
+    //             url:message.guild.iconURL
+    //           },
+    //           fields:[
+    //             {
+    //               name:"チャンネル名",
+    //               value:addch_name
+    //             }
+    //           ]
+    //         }
+    //       })
+    //         ch.send({
+    //           embed:{
+    //             color:3066993,
+    //             timestamp:new Date(),
+    //             thubneil:{
+    //               url:message.guild.iconURL
+    //             },
+    //             fields:[
+    //               {
+    //                 name:"チャンネル作成者",
+    //                 value:message.member.displayName + 'が作成しました',
+    //               }
+    //             ]
+    //           }
+    //         });
+    //       })
+    //            .catch( (err) => {message.chanel.send({
+    //       embed:{
+    //         title:"チャンネルの作成に失敗しました",
+    //         color: 3066993,
+    //         titmestamp: new Date(),
+    //         thumbnail: {
+    //           url:message.guid.iconURL
+    //         }
+    //       }
+    //     })});
+    // }
+    // }
 
 
     if(command === 'embed'){
@@ -694,6 +720,122 @@ bot.on('message', message => {
       const dicerange = args[0]
     const dice = Math.floor(Math.random() * dicerange);
       message.channel.send(dice + "が出ました！");
+    }
+
+    if(command === "banlist"){
+      message.guild.fetchBans()
+    .then(banned => {
+      let list = banned.map(user => user.tag + "```ID:" + user.id + "```").join('\n');
+
+      if (list.length >= 1950) list = `${list.slice(0, 1948)}...`;
+
+        message.channel.send({embed:{title:`${banned.size}人がBANされています。`,description:list}})
+    })
+    }
+
+    if ( command  === 'addch' ){
+      const perms = message.member.permissions;
+          if (perms.has("ADMINISTRATOR")) {
+      const ch_name = args[0]
+
+      if ( !message.guild.channels.exists( 'name', ch_name  ) ){
+
+        message.guild.createChannel( ch_name, 'text' )
+          .then( (ch) => {
+          if(args[1]){
+            let parent = message.guild.channels.find( 'name', args[1] );
+            if ( parent ) {
+              ch.setParent( parent );
+            }
+          }
+          message.channel.send({
+              embed:{
+                title:"チャンネルを作成しました",
+                color:3066993,
+                timestamp:new Date(),
+                thumbneil:{
+                  url:message.guild.iconURL
+                },
+                fields:[
+                  {
+                    name:"チャンネル",
+                    value:`<#${ch.id}>`
+                  }
+                ]
+              }
+            })
+            ch.send( message.member.displayName + 'が作成しました' );
+
+            let obj = {
+              ch_id: ch.id,
+              user_id: message.member.id,
+            }
+
+            // チャンネルIDとユーザーIDを追加してJSONファイルに出力
+            ch_log.channels.push( obj );
+            write_json( ch_log_filename, ch_log );
+          })
+          .catch( (err) => { console.log( err ); });
+      }
+      else {
+        message.channel.send( '同名のチャンネルが既に存在しています' );
+      }
+    }
+  }
+
+
+    if ( command === 'delch' ){
+      const perms = message.member.permissions;
+          if (perms.has("ADMINISTRATOR")) {
+      const ch_name = args[0]
+
+      let channel = message.guild.channels.find( 'name', ch_name );
+
+      if ( channel ){
+
+        const index = ch_log.channels.findIndex( (obj)=>{
+          return obj.ch_id === channel.id;
+        });
+
+        // 削除しようとしているユーザーが作成者かチェック
+        if ( message.member.id === ch_log.channels[index].user_id ){
+
+          channel.delete()
+            .then( (ch) => {
+              // 削除したチャンネルじゃなければ削除メッセージを送信
+              if ( ch.id !== message.channel.id ) {
+                message.channel.send( ch_name + 'チャンネルを削除しました' );
+              }
+
+              // 削除したチャンネルのログを削除してJSONファイルに出力
+              ch_log.channels.splice( index, 1 );
+              write_json( ch_log_filename, ch_log );
+            })
+            .catch( (err) => { console.log( err ); } );
+        }
+        else {
+          message.channel.send( ch_name + 'あなたはそのチャンネルの作成者ではありません' );
+        }
+      }
+      else {
+        message.channel.send( ch_name + 'そのチャンネルは存在しません' );
+      }
+    }
+  }
+
+    if(command == "avatar"){
+      message.channel.send(message.author.avatarURL)
+    }
+
+    if(command === "timer"){
+      const time = args[0]*1000
+      const num = 0
+      message.channel.send(`タイマーを${args[0]}秒にセットしました。`)
+
+      function timer(){
+        message.channel.send(`<@${message.author.id}>さん！${args[0]}秒立ちましたよ！`)
+      }
+      setTimeout(timer,time)
     }
 
     if(command === 'setgame'){
@@ -820,6 +962,146 @@ bot.on('message', async (message) => {
     }))
     .catch(console.error);
 });//url展開
+
+bot.on('message', async message =>{
+  if (message.content === 'r!join') {
+    if(!message.author.id == "502816456052834314")return;
+		bot.emit('guildMemberAdd', message.member);
+	}
+  if(message.content === "r!remove"){
+    if(!message.author.id == "502816456052834314")return;
+    bot.emit('guildMemberRemove',message.member);
+  }
+
+  if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+  if(command == "canvas"){
+
+    const sayMessage = args.join(" ");
+
+  const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('https://cdn.glitch.com/98e13cdc-ea94-4b94-89f0-65b5005f0489%2F8CQvVRV.cced9193.png?v=1594436377090');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.strokeStyle = '#74037b';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+	// Slightly smaller text placed above the member's display name
+	ctx.font = '28px sans-serif';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(message.author.username, canvas.width / 2.5, canvas.height / 3.5);
+
+	// Add an exclamation point here and below
+	ctx.font = applyText(canvas, `${message.author.displayName}!`);
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${sayMessage}`, canvas.width / 2.5, canvas.height / 1.5);
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(message.author.displayAvatarURL);
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+
+	message.channel.send(attachment);
+  }
+  
+})
+
+const applyText = (canvas, text) => {
+	const ctx = canvas.getContext('2d');
+
+	// Declare a base size of the font
+	let fontSize = 70;
+
+	do {
+		// Assign the font to the context and decrement it so it can be measured again
+		ctx.font = `${fontSize -= 10}px sans-serif`;
+		// Compare pixel width of the text to the canvas minus the approximate avatar size
+	} while (ctx.measureText(text).width > canvas.width - 300);
+
+	// Return the result to use in the actual canvas
+	return ctx.font;
+};
+
+bot.on('guildMemberRemove', async member => {
+	const channel = member.guild.channels.find(ch => ch.name === 'コマンド');
+	if (!channel) return;
+
+	const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('https://cdn.glitch.com/98e13cdc-ea94-4b94-89f0-65b5005f0489%2F8CQvVRV.cced9193.png?v=1594436377090');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.strokeStyle = '#74037b';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+	// Slightly smaller text placed above the member's display name
+	ctx.font = '28px sans-serif';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('see you ,', canvas.width / 2.5, canvas.height / 3.5);
+
+	// Add an exclamation point here and below
+	ctx.font = applyText(canvas, `${member.displayName}`);
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+
+	channel.send(`またね、, ${member}さん...`, attachment);
+});
+
+bot.on('guildMemberAdd', async member => {
+	const channel = member.guild.channels.find(ch => ch.name === 'コマンド');
+	if (!channel) return;
+
+	const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('https://cdn.glitch.com/98e13cdc-ea94-4b94-89f0-65b5005f0489%2F8CQvVRV.cced9193.png?v=1594436377090');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.strokeStyle = '#74037b';
+	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+	// Slightly smaller text placed above the member's display name
+	ctx.font = '28px sans-serif';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
+
+	// Add an exclamation point here and below
+	ctx.font = applyText(canvas, `${member.displayName}!`);
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+
+	channel.send(member.guild.name + `へようこそ！, ${member}!`, attachment);
+});//canvas
 
 bot.on('message', async (msg) => {
   if(msg.content !== "rs!help"){
@@ -1118,4 +1400,4 @@ bot.channels.forEach(channel => {
 });
 
 
-bot.login("NjUwOTczMjQ1NzkyNzE0NzYy.Xwg87w.EebXskHK6wbTnDCF2IKrM7l1ZjI");
+bot.login(DISCORD_BOT_TOKEN);
