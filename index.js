@@ -1134,7 +1134,7 @@ bot.on('message', async (msg) => {
              value:"helpの使い方"
            },
            {
-            name:"P12",
+            name:"P2",
             value:"目次"
            },
            {
